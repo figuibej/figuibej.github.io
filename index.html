@@ -1,594 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Fernando Iguibejeres</title>
-<meta charset="utf-8">
-<meta name = "format-detection" content = "telephone=no" />
-<link rel="icon" href="images/favicon.ico">
-<link rel="shortcut icon" href="images/favicon.ico" />
-<link rel="stylesheet" href="css/animation.css">
-<link rel="stylesheet" href="css/camera.css">
-<link rel="stylesheet" href="css/contact-form.css">
-<link rel="stylesheet" href="css/touchTouch.css">
-<link rel="stylesheet" href="css/style.css">
-  <script src='//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false'></script>
-<script src="js/jquery.js"></script>
-<script src="js/jquery-migrate-1.1.1.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/script.js"></script>
-<script src="js/jquery.ui.totop.js"></script>
-<script src="js/touchTouch.jquery.js"></script>
-<script src="js/isotope.pkgd.js"></script>
-<script src="js/TMForm.js"></script>
-<script src="js/modal.js"></script>
-<script src="js/camera.js"></script>
-<!--[if (gt IE 9)|!(IE)]><!-->
-<script src="js/jquery.mobile.customized.min.js"></script>
-<!--<![endif]-->
-<script>
- $(window).load(function(){
-  $().UItoTop({ easingType: 'easeOutQuart' });
-  $('.gallery .gall_item').touchTouch();
- });
- $(document).ready(function(){
-     jQuery('#camera_wrap').camera({
-      loader: false,
-      pagination: true ,
-      minHeight: '500',
-      thumbnails: false,
-      height: '44.42708333333333%',
-      caption: true,
-      navigation: false,
-      fx: 'mosaic'
-    });
-    $('.gallery .gall-item').touchTouch();
-  });
-</script>
-<!--[if lt IE 8]>
- <div style=' clear: both; text-align:center; position: relative;'>
-   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-   </a>
-</div>
-<![endif]-->
-<!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<link rel="stylesheet" media="screen" href="css/ie.css">
-<![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<body>
-<div class="texture">
-<!--==============================
-              header
-=================================-->
-<header id="home" class="page">
-  <div class="navigation single-page-nav">
-    <div class="container_12">
-      <div class="grid_12">
-        <h1 class="logo">
-          <a href="index.html">Fernando Iguibejeres</a>
-        </h1>
-        <nav>
-          <ul>
-           <li><a href="#home" class="current">Home</a></li>
-           <!--li><a href="#portfolio">Portfolio</a></li>
-           <li><a href="#skills">Skills</a></li-->
-           <li><a href="#experience">Experience</a></li>
-           <!--li><a href="#testimonials">Testimonials</a></li-->
-           <li><a href="#contacts">Contacts</a></li>
-         </ul>
-        </nav>
-      </div>
-    </div>
-  </div>
-  <div id="camera_wrap">
-    <div data-src="images/slide-1.jpg">
-      <div class="caption fadeIn">Software Architect</div>
-    </div>
-    <div data-src="images/slide-2.jpg">
-      <div class="caption fadeIn">Java Developer</div>
-    </div>
-    <div data-src="images/slide-3.jpg">
-      <div class="caption fadeIn">Freelance Developer</div>
-    </div>
-  </div>
-</header>
-<!--=====================
-          Content
-======================-->
-<section class="content">
-  <div class="ic">More Website Templates @ TemplateMonster.com - October 20, 2014!</div>
-  <div class="pad-1">
-    <div class="container_12">
-      <div class="grid_12">
-        <img src="images/page-img_1.jpg" alt="" class="fleft">
-        <div class="extra_wrapper">
-          <h2 class="left">
-            Fernando Iguibejeres
-          </h2>
-          <div class="text-2 color1">
-            <a href="javascript.void()">Software Architect</a> &bull;
-            <a href="javascript.void()">Java Developer</a> &bull; 
-            <a href="javascript.void()">Freelance Developer</a>
-          </div>
-          <p class="offset__1">With over 10 years of experience in the field of IT, working mostly with Java J2EE technologies. Freelance work in other technologies such as NodeJS, Android, PHP, HTML5, CSS3, others</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-<!--section id="portfolio" class="page">
-  <div class="container_12">
-    <div class="grid_12">
-      <h2 class="color2">My Portfolio</h2>
-      <div id="filters" class="button-group">
-        <a href="#" class="btn is-checked" data-filter="*">Show all</a>
-        <a href="#" class="btn" data-filter=".ill">Illustration</a>
-        <a href="#" class="btn" data-filter=".photo">Photography</a>
-        <a href="#" class="btn" data-filter=".design">Design</a>
-      </div>
-      <div class="el gallery" id="isotope">
-        <div class="element design">
-          <div>
-            <a href="images/big1.jpg" class="gall-item"><img src="images/gal_img1.jpg" alt=""><span></span></a>
-        </div>
-        </div>
-        <div class="element photo">
-          <div>
-            <a href="images/big2.jpg" class="gall-item"><img src="images/gal_img2.jpg" alt=""><span></span></a>
-          </div>
-        </div>
-        <div class="element  photo">
-          <div>
-            <a href="images/big3.jpg" class="gall-item"><img src="images/gal_img3.jpg" alt=""><span></span></a>
-          </div>
-        </div>
-        <div class="clear"></div>
-        <div class="element ill">
-          <div>
-            <a href="images/big4.jpg" class="gall-item"><img src="images/gal_img4.jpg" alt=""><span></span></a>
-          </div>
-        </div>
-        <div class="element ill">
-          <div>
-            <a href="images/big5.jpg" class="gall-item"><img src="images/gal_img5.jpg" alt=""><span></span></a>
-          </div>
-        </div>
-        <div class="element design">
-          <div>
-            <a href="images/big6.jpg" class="gall-item"><img src="images/gal_img6.jpg" alt=""><span></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</section>
-<section id="skills" class="page">
-  <div class="container_12">
-    <div class="grid_12">
-      <h2>Skills</h2>
-    </div>
-    <div class="grid_3">
-     <div style="clear:both"></div>
-        <div class="circle">
-          <input class="knob" data-angleOffset="0" value="93" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
-        </div>
-      <div class="text-3"><a href="#">Photoshop</a></div>
-    </div>
-    <div class="grid_3">
-      <div class="circle">
-          <input class="knob" data-angleOffset="0" value="82" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
-        </div>
-      <div class="text-3"><a href="#">HTML5/CSS3</a></div>
-    </div>
-    <div class="grid_3">
-      <div class="circle">
-          <input class="knob" data-angleOffset="0" value="90" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
-        </div>
-      <div class="text-3"><a href="#">Photography</a></div>
-    </div>
-    <div class="grid_3">
-      <div class="circle">
-          <input class="knob" data-angleOffset="0" value="89" data-fgColor="#2a797b" data-bgColor="#3a556e" data-width="226" data-height="226" data-thickness=.2>
-        </div>
-      <div class="text-3"><a href="#">PHP/MYSQL</a></div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</section-->
-<section id="experience" class="page">
-  <div class="container_12">
-    <div class="grid_12">
-      <h2>Work Experience</h2>
-      <div class="block-1">
-        <div class="grid_4 alpha">
-          <div class="block-1__left">
-            <h3>2015 - Present</h3>
-            <time  datetime="2014-01-01" class="text-2">August </time>
-            <div style="padding-top: 20px; padding-bottom: 20px;">
-              <img src="images/logoCDT.gif" />
-            </div>
-          </div>
-        </div>
-        <div class="grid_8 omega">
-          <div class="block-2__right">
-            <h3>Software Architect</h3>
-            <p>Providing guidelines to projects team according users stack, performing dynamic and static code assesments, communicating and justifying the technical decisions with involved areas</p>
-          </div>
-        </div>
-      </div>
-      <div class="block-1">
-        <div class="grid_4 alpha">
-          <div class="block-1__left">
-            <h3>2013 - 2015</h3>
-            <time  datetime="2014-01-01" class="text-2">April &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>August</span></time>
-            <div class="ta__right">
-              <img src="images/logoOSDE.png" />
-            </div>
-          </div>
-        </div>
-        <div class="grid_8 omega">
-          <div class="block-2__right">
-            <h3>Technical Analyst</h3>
-            <p>Making technical definitions in several projects, testing, and deploying to production, generate PoC for project kick off or for users approval, technology resarch and productions bugs resolutions.</p>
-          </div>
-        </div>
-      </div>
-      <div class="block-1">
-        <div class="grid_4 alpha">
-          <div class="block-1__left">
-            <h3>2015 - 2015</h3>
-            <time  datetime="2014-01-01" class="text-2">February <span>April</span></time>
-            <div class="ta__right">
-              <img src="images/logoBrain.jpg" />
-            </div>
-          </div>
-        </div>
-        <div class="grid_8 omega">
-          <div class="block-2__right">
-            <h3>Freelance developement Ionic and Firebase</h3>
-            <p>Mobile application development with framework Ionic Android and iPhone, using PHP MySQL backend via REST with Slim microframework. Geolocated search with MySQL and Google Geo API and Chat based on Firebase
-          </div>
-        </div>
-      </div>
-      <div class="block-1">
-        <div class="grid_4 alpha">
-          <div class="block-1__left">
-            <h3>2010 - 2013</h3>
-            <time  datetime="2014-01-01" class="text-2">October <span>April</span></time>
-            <div class="ta__right">
-              <img src="images/logoOracle.jpg" />
-            </div>
-          </div>
-        </div>
-        <div class="grid_8 omega">
-          <div class="block-2__right">
-            <h3>Ssr Java EE Software Developer</h3>
-            <p>Java Developers desktop application using Swing, Spring, JPA Over Hibernate with Oracle Lite, Jasper Reports, Maven, IC Hudson</p>
-            <p>ADF Developer with JDeveloper Studio and Oracle 11g</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="clear"></div>
-  </div>
-</section>
-<!--section id="testimonials" class="page">
-  <div class="container_12">
-    <div class="grid_12">
-      <h2 class="color2">Testimonials</h2>
-    </div>
-    <div class="grid_4">
-      <blockquote class="bq1">
-        <img src="images/page-img_2.jpg" alt="">
-        <div class="extra_wrapper">
-          <div class="text-2"><a href="#">Helen Thomson</a></div>
-          Korem ipsum dolor sittur dipiscing elit. In molliserat mattis neque facilisisltries wertolio dasererat
-        </div>
-      </blockquote>
-    </div>
-    <div class="grid_4">
-      <blockquote class="bq1">
-        <img src="images/page-img_3.jpg" alt="">
-        <div class="extra_wrapper">
-          <div class="text-2"><a href="#">Mark Grey</a></div>
-          Morem ipsum dolor sittur dipiscing elit. In molliserat mattis neque facilisisltries wertolio daserera
-        </div>
-      </blockquote>
-    </div>
-    <div class="grid_4">
-      <blockquote class="bq1">
-        <img src="images/page-img_4.jpg" alt="">
-        <div class="extra_wrapper">
-          <div class="text-2"><a href="#">Irma Wood</a></div>
-          Torem ipsum dolor sittur dipiscing elit. In molliserat mattis neque facilisisltries wertolio dasererum
-        </div>
-      </blockquote>
-    </div>
-    <div class="clear"></div>
-  </div>
-</section-->
-<section id="contacts" class="page">
-  <div class="container_12">
-    <div class="grid_6">
-      <div class="container_12">
-    <div class="grid_12">
-      
-      <div class="icon-wrapper">
 
-        <div class="col-lg-4 text-center">
-          <a href="mailto:fer36@hotmail.com" target="blank">
-            <i class="fa fa-envelope" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
-            <p>Mail</p>
-            </a>
-        </div>
+<body id="page-top" class="index">
 
-        <div class="col-lg-4 text-center">
-          <a href="https://ar.linkedin.com/in/fernando-iguibejeres-50393212" target="blank">
-            <i class="fa fa-linkedin" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
-            <p>Linkedin</p>
-            </a>
-        </div>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Fernando Iguibejeres</a>
+            </div>
 
-        <div class="col-lg-4 text-center">
-          <a href="https://github.com/figui" target="blank">
-            <i class="fa fa-github" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
-            <p>Github</p>
-            </a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-        <div class="col-lg-4 text-center">
-          <a href="https://twitter.com/ferigui" target="blank">
-            <i class="fa fa-twitter" style="visibility: visible; animation-delay: 0.1s; animation-name: bounceIn;"></i>
-            <p>Twitter</p>
-            </a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive img-circle" src="img/profile.jpg" alt="">
+                    <div class="intro-text">
+                        <span class="name">Fernando Iguibejeres</span>
+                        <hr class="star-light">
+                        <span class="skills">Software Architect - Java Developer - Freelance Developer</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Portfolio</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/logo-ml.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/logo-cdt.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/logo-osde.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/logo-braintly.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/logo-oracle.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                            <h3 class="text-center">Software Architect • Java Developer • Freelance Developer</h3>
+                            <p class="lead">With over 10 years of experience in the field of IT, working mostly with Java J2EE technologies. Freelance work in other technologies such as NodeJS, Android, PHP, HTML5, CSS3, others.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>Argentina
+                            <br>Buenos Aires</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://plus.google.com/u/1/110810654528946283176" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/ferigui"  target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://ar.linkedin.com/in/fernando-iguibejeres-50393212"  target="_blank"class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/figui"  target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Your Website 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
     </div>
-    <div class="clear"></div>
-  </div>
-  </div>
-      
-    <div class="clear"></div>
-  </div>
-  
- 
-</section>
-</section>
-<!--==============================
-              footer
-=================================-->
-</div>
-<footer id="footer">
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="copyright"> &copy; <span id="copyright-year">2014</span>| <a href="#">Privacy Policy </a> <br>
-      </div>
+
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Software Engineer</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/logo-ml.jpg" class="img-responsive img-centered" alt="">
+                            <p>The project handle several postal carriers to providing a shipping service to orders in the site, the technology used in the project are : Grails, Oracle, Mongo, Redis, Memcached, Ehcache, Rabbit, Elasticsearch</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://www.mercadolibre.com">MercadoLibre.com</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">July 2016 - Present</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Software Engineer</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="clear"></div>
-</footer>
-<a href="#" id="toTop" class="fa fa-chevron-up"></a>
-<script src="js/jquery.singlePageNav.min.js"></script>
-<script>
-  // Prevent console.log from generating errors in IE for the purposes of the demo
-  if ( ! window.console ) console = { log: function(){} };
-  // The actual plugin
-  $('.single-page-nav').singlePageNav({
-      offset: $('.single-page-nav').outerHeight(),
-      filter: ':not(.external)',
-      updateHash: true,
-      beforeStart: function() {
-          console.log('begin scrolling');
-      },
-      onComplete: function() {
-          console.log('done scrolling');
-      }
-  });
-</script>
-<script type="text/javascript">
-          //google_api_map_init();
-          function google_api_map_init(){
-            var map;
-            var coordData = new google.maps.LatLng(parseFloat(40.646197), parseFloat(-73.9724068,14));
-            var styleArray = [
-    {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#193341"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#2c5a71"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#29768a"
-            },
-            {
-                "lightness": -37
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#406d80"
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#406d80"
-            }
-        ]
-    },
-    {
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "visibility": "on"
-            },
-            {
-                "color": "#3e606f"
-            },
-            {
-                "weight": 2
-            },
-            {
-                "gamma": 0.84
-            }
-        ]
-    },
-    {
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "administrative",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "weight": 0.6
-            },
-            {
-                "color": "#1a3541"
-            }
-        ]
-    },
-    {
-        "elementType": "labels.icon",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "color": "#2c5a71"
-            }
-        ]
-    }
-]
-            function initialize() {
-              var mapOptions = {
-                zoom: 13,
-                center: coordData,
-                scrollwheel: false,
-                styles: styleArray
-              }
-              var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            google.maps.event.addDomListener(window, 'resize', function() {
-              map.setCenter(coordData);
-              var center = map.getCenter();
-            });
-          }
-            google.maps.event.addDomListener(window, "load", initialize);
-          }
-      </script>
-              <!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]-->
-      <script src="js/jquery.knob.js"></script>
-<script>
-  $(function($) {
-    $(".knob").knob({
-        change : function (value) {
-            //console.log("change : " + value);
-        },
-        release : function (value) {
-            //console.log(this.$.attr('value'));
-            console.log("release : " + value);
-        },
-        cancel : function () {
-            console.log("cancel : ", this);
-        },
-        /*format : function (value) {
-            return value + '%';
-        },*/
-        draw : function () {
-            // "tron" case
-            if(this.$.data('skin') == 'tron') {
-                this.cursorExt = 0.3;
-                var a = this.arc(this.cv)  // Arc
-                    , pa                   // Previous arc
-                    , r = 1;
-                this.g.lineWidth = this.lineWidth;
-                if (this.o.displayPrevious) {
-                    pa = this.arc(this.v);
-                    this.g.beginPath();
-                    this.g.strokeStyle = this.pColor;
-                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
-                    this.g.stroke();
-                }
-                this.g.beginPath();
-                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
-                this.g.stroke();
-                this.g.lineWidth = 2;
-                this.g.beginPath();
-                this.g.strokeStyle = this.o.fgColor;
-                this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                this.g.stroke();
-                return false;
-            }
-        }
-    });
-    // Example of infinite knob, iPod click wheel
-    var v, up=0,down=0,i=0
-        ,$idir = $("div.idir")
-        ,$ival = $("div.ival")
-        ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
-        ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
-    $("input.infinite").knob(
-                        {
-                        min : 0
-                        , max : 20
-                        , stopper : false
-                        , change : function () {
-                                        if(v > this.cv){
-                                            if(up){
-                                                decr();
-                                                up=0;
-                                            }else{up=1;down=0;}
-                                        } else {
-                                            if(v < this.cv){
-                                                if(down){
-                                                    incr();
-                                                    down=0;
-                                                }else{down=1;up=0;}
-                                            }
-                                        }
-                                        v = this.cv;
-                                    }
-                        });
-    });
-</script>
-<script src="js/isotop_ini.js"></script>
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Software Architect</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/logo-cdt.jpg" class="img-responsive img-centered" alt="">
+                            <p>Providing guidelines to projects team according users stack, performing dynamic and static code assesments, communicating and justifying the technical decisions with involved areas</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://www.cdt.com.ar">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="#">August 2015 - July 2016</a></strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="#">Software Architect</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Technical Analyst</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/logo-osde.png" class="img-responsive img-centered" alt="">
+                            <p>Making technical definitions in several projects, testing, and deploying to production, generate PoC for project kick off or for users approval, technology resarch and productions bugs resolutions.</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://www.osdebinario.com.ar">OSDE</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="#">April 2013 - August 2015</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="#">Tecnhical Analyst</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Freelance Ionic + Firebase</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/logo-braintly.png" class="img-responsive img-centered" alt="">
+                            <p>Mobile application development with framework Ionic Android and iPhone, using PHP MySQL backend via REST with Slim microframework. Geolocated search with MySQL and Google Geo API and Chat based on Firebase</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="https://braintly.com/">Braintly</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">February 2015 - April 2015</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Ssr Java EE Software Developer</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/logo-oracle.jpg" class="img-responsive img-centered" alt="">
+                            <p>Java Developers desktop application using Swing, Spring, JPA Over Hibernate with Oracle Lite, Jasper Reports, Maven, IC Hudson<br><br>ADF Developer with JDeveloper Studio and Oracle 11g</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://www.oracle.com">Oracle</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">October 2010 - April 2013</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Java Developer</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Project Title</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
+
 </body>
+
 </html>
