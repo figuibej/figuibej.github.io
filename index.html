@@ -208,7 +208,7 @@
         <div class="footer-below">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" id="cp">
                         Copyright &copy; Your Website 2016
                     </div>
                 </div>
@@ -461,6 +461,12 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $("#cp").html("Copyright &copy; Your Website " + new Date().getFullYear());
+        });
+    </script>
 
 </body>
 
