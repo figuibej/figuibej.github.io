@@ -1,655 +1,543 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fernando Iguibejeres — Software Architect & Full Stack Developer</title>
+<meta name="description" content="Fernando Iguibejeres — Software Architect y Full Stack Developer. Más de 15 años construyendo software: arquitectura, backend a escala y aplicaciones full stack. Buenos Aires, Argentina." />
+<meta name="author" content="Fernando Iguibejeres" />
+<meta name="theme-color" content="#F5F7F2" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0B1A21" media="(prefers-color-scheme: dark)" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Fernando Iguibejeres — Software Architect & Full Stack Developer" />
+<meta property="og:description" content="Más de 15 años construyendo software: arquitectura, backend a escala y aplicaciones full stack." />
+<meta property="og:image" content="https://figuibej.github.io/img/profile.png" />
+<meta property="og:url" content="https://figuibej.github.io/" />
+<meta name="twitter:card" content="summary" />
+<link rel="canonical" href="https://figuibej.github.io/" />
+<link rel="icon" href="img/profile.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#F5F7F2; --surface:#ffffff; --band:#0F2631; --ink:#0F2631; --muted:#5A6A72;
+  --line:rgba(15,38,49,.13); --soft:rgba(15,38,49,.04);
+  --onband:#EAF2F5; --onbandmuted:rgba(234,242,245,.62);
+  --accent:#2E9EBC; --accent2:#7BA658;
+  --maxw:1120px; --pad:32px;
+}
+html[data-theme="dark"]{
+  --bg:#0B1A21; --surface:#12252E; --band:#081419; --ink:#EAF2F5; --muted:#94A8B1;
+  --line:rgba(234,242,245,.15); --soft:rgba(234,242,245,.05);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased; text-wrap:pretty;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{color:var(--accent2)}
+h1,h2,h3,p{margin:0}
+img{display:block}
+button{font-family:inherit}
+[hidden]{display:none !important}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad)}
+section[id]{scroll-margin-top:88px}
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Fernando Iguibejeres - Software Engineer">
-	<meta name="author" content="Fernando Iguibejeres">
+/* nav */
+.nav{position:sticky; top:0; z-index:50; border-bottom:1px solid var(--line);
+  background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(14px)}
+.nav-in{max-width:var(--maxw); margin:0 auto; padding:12px var(--pad); min-height:68px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px}
+.brand{display:flex; align-items:baseline; gap:8px; flex:0 0 auto; white-space:nowrap;
+  font-size:15px; font-weight:700; letter-spacing:-.2px; color:var(--ink)}
+.brand:hover{color:var(--ink)}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+.spacer{flex:1 1 auto; min-width:12px}
+.nav-links{display:flex; align-items:center; gap:22px; flex:0 0 auto}
+.nav-links a{font-size:13px; font-weight:500; letter-spacing:.2px; color:var(--muted); white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.group{display:flex; align-items:center; gap:4px; padding:3px; flex:0 0 auto;
+  border:1px solid var(--line); border-radius:999px}
+.group button{border:0; cursor:pointer; background:transparent; color:var(--muted);
+  font-size:11px; font-weight:700; letter-spacing:.6px; padding:6px 11px; border-radius:999px}
+.group button[aria-pressed="true"]{background:var(--ink); color:var(--bg)}
+.icon-btn{flex:0 0 auto; width:34px; height:34px; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius:50%; background:transparent;
+  color:var(--ink); cursor:pointer; font-size:14px; line-height:1}
+.icon-btn:hover{background:var(--soft)}
 
-	<title>Fernando Iguibejeres</title>
+/* hero */
+.hero{padding:104px var(--pad) 84px; max-width:var(--maxw); margin:0 auto}
+.hero-id{display:flex; align-items:center; gap:16px; margin-bottom:40px}
+.hero-id img{width:76px; height:76px; border-radius:50%; object-fit:cover; background:var(--surface)}
+.hero-name{font-size:15px; font-weight:700; letter-spacing:-.2px}
+.kicker{font-size:12px; font-weight:600; letter-spacing:3.4px; text-transform:uppercase; color:var(--accent)}
+.hero-id .kicker{margin-top:5px}
+.display{font-size:clamp(34px,6.2vw,68px); line-height:1.06; letter-spacing:-2.6px;
+  font-weight:300; color:var(--muted); max-width:20em}
+.display strong{font-weight:800; color:var(--ink)}
+.ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:44px}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:999px;
+  font-size:14px; font-weight:600; letter-spacing:.3px}
+.btn-solid{background:var(--ink); color:var(--bg)}
+.btn-solid:hover{opacity:.86; color:var(--bg)}
+.btn-ghost{border:1px solid var(--line); color:var(--ink)}
+.btn-ghost:hover{background:var(--soft); color:var(--ink)}
 
-	<!-- Bootstrap Core CSS -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+/* sections */
+.sec{max-width:var(--maxw); margin:0 auto; padding:72px var(--pad) 12px}
+.sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:32px;
+  flex-wrap:wrap; margin-bottom:44px}
+.h2{font-size:clamp(28px,4vw,40px); line-height:1.05; letter-spacing:-1.6px; font-weight:800; color:var(--ink)}
+.sec-head .kicker{margin-bottom:14px}
+.pill-btn{border:1px solid var(--line); background:transparent; color:var(--muted);
+  font-size:12px; font-weight:600; letter-spacing:.4px; padding:10px 18px; border-radius:999px; cursor:pointer}
+.pill-btn:hover{background:var(--soft); color:var(--ink)}
 
-	<!-- Theme CSS -->
-	<link href="css/freelancer.min.css" rel="stylesheet">
+/* timeline */
+.tl{display:flex; flex-direction:column; border-bottom:1px solid var(--line)}
+.job{display:grid; grid-template-columns:128px 1fr; border-top:1px solid var(--line)}
+.job-when{padding:30px 20px 30px 0; font-size:12px; font-weight:600; letter-spacing:.6px;
+  color:var(--muted); line-height:1.6}
+.now{display:inline-flex; margin-top:10px; padding:4px 9px; border-radius:999px;
+  background:var(--accent2); color:#12250D; font-size:10px; font-weight:700;
+  letter-spacing:.8px; text-transform:uppercase}
+.job-head{display:flex; align-items:center; gap:20px; padding:28px 4px 28px 0; width:100%;
+  border:0; background:transparent; color:inherit; text-align:left; cursor:pointer; font:inherit}
+.job-head:hover{background:var(--soft)}
+.logo{width:52px; height:52px; flex:none; border-radius:12px; background:#fff;
+  border:1px solid var(--line); display:grid; place-items:center; overflow:hidden}
+.logo span{width:76%; height:76%; background-size:contain; background-position:center; background-repeat:no-repeat}
+.job-role{font-size:19px; font-weight:700; letter-spacing:-.4px; color:var(--ink)}
+.job-co{font-size:14px; font-weight:500; color:var(--muted); margin-top:4px}
+.job-main{flex:1; min-width:0}
+.chev{width:30px; height:30px; flex:none; border-radius:50%; border:1px solid var(--line);
+  display:grid; place-items:center; color:var(--muted); font-size:15px; line-height:1}
+.job-body{padding:0 0 32px 72px; animation:riseIn .28s ease both}
+.job-body p{font-size:15px; line-height:1.68; color:var(--muted); max-width:62ch}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+.tags span{font-size:11px; font-weight:600; letter-spacing:.4px; padding:6px 11px; border-radius:6px;
+  background:var(--soft); border:1px solid var(--line); color:var(--ink)}
+.job-link{display:inline-flex; align-items:center; gap:7px; margin-top:22px;
+  font-size:13px; font-weight:600; letter-spacing:.3px}
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-	<!-- Custom Fonts -->
-	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+/* stack */
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:26px 24px}
+.card h3{display:flex; align-items:center; gap:9px; font-size:13px; font-weight:700;
+  letter-spacing:.4px; color:var(--ink); margin-bottom:16px}
+.card .chips{display:flex; flex-wrap:wrap; gap:7px}
+.card .chips span{font-size:12px; font-weight:500; color:var(--muted); padding:5px 10px;
+  border-radius:6px; background:var(--soft)}
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+/* contact */
+.contact{max-width:var(--maxw); margin:0 auto; padding:88px var(--pad) 96px}
+.contact-in{background:var(--band); border-radius:28px; padding:68px 56px;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:56px; align-items:center}
+.contact-in .h2{color:var(--onband)}
+.contact-in p{margin-top:20px; font-size:17px; line-height:1.6; color:var(--onbandmuted); max-width:34em}
+.contact-in .btn-solid{background:var(--onband); color:var(--band)}
+.contact-in .btn-solid:hover{opacity:.88; color:var(--band)}
+.contact-in .btn-ghost{border-color:rgba(234,242,245,.28); color:var(--onband)}
+.contact-in .btn-ghost:hover{background:rgba(234,242,245,.1); color:var(--onband)}
+.links{display:flex; flex-direction:column}
+.links .kicker{color:rgba(234,242,245,.45); letter-spacing:2.4px; font-size:11px; margin-bottom:14px}
+.links a{display:flex; align-items:center; justify-content:space-between; padding:14px 0;
+  border-bottom:1px solid rgba(234,242,245,.14); color:var(--onband); font-size:15px; font-weight:500}
+.links a:last-of-type{border-bottom:0}
+.links a:hover{color:var(--accent2)}
+.links a i{opacity:.5; font-style:normal}
+.where{margin-top:24px; font-size:13px; line-height:1.6; color:rgba(234,242,245,.45)}
 
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+footer{border-top:1px solid var(--line); padding:30px var(--pad)}
+.foot-in{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center;
+  justify-content:space-between; gap:20px; flex-wrap:wrap;
+  font-size:12px; font-weight:500; color:var(--muted)}
 
-		ga('create', 'UA-89817605-1', 'auto');
-		ga('send', 'pageview');
-	</script>
-
+@media (max-width:640px){
+  :root{--pad:20px}
+  .hero{padding:64px var(--pad) 56px}
+  .job{grid-template-columns:1fr}
+  .job-when{padding:22px 0 0}
+  .job-head{padding:16px 0 22px}
+  .job-body{padding-left:0}
+  .contact-in{padding:44px 28px}
+  .nav-links{gap:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .job-body{animation:none}
+}
+</style>
 </head>
+<body>
 
-<body id="page-top" class="index">
-
-	<!-- Navigation -->
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-				</button>
-				<a class="navbar-brand" href="#page-top">Fernando Iguibejeres</a>
-			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="hidden">
-						<a href="#page-top"></a>
-					</li>
-					<li class="page-scroll">
-						<a href="#portfolio">Portfolio</a>
-					</li>
-					<li class="page-scroll">
-						<a href="#about">About</a>
-					</li>
-					<li class="page-scroll">
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-
-	<!-- Header -->
-	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<img class="img-responsive" src="img/profile.png" alt="">
-					<div class="intro-text">
-						<span class="name">Fernando Iguibejeres</span>
-						<hr class="star-light">
-						<span class="skills">Software Architect - FullStack - Freelancer Developer</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<!-- Portfolio Grid Section -->
-	<section id="portfolio">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2>Portfolio</h2>
-					<hr class="star-primary">
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModalMobeats" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-mobeats.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModalBitson" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-bitson.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-uberall.png" class="img-responsive" alt="">
-					</a>
-				</div>
-
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-ml.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-3pbi.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-cdt.jpg" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-osde.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-braintly.png" class="img-responsive" alt="">
-					</a>
-				</div>
-				<div class="col-sm-4 portfolio-item">
-					<a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">
-						<div class="caption">
-							<div class="caption-content">
-								<i class="fa fa-search-plus fa-3x"></i>
-							</div>
-						</div>
-						<img src="img/portfolio/logo-oracle.jpg" class="img-responsive" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- About Section -->
-	<section class="success" id="about">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2>About</h2>
-					<hr class="star-light">
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-center">
-							<h3 class="text-center">Software Architect • Full Stack Developer • Freelance Developer</h3>
-							<p class="lead">With more than 10 years of experience on IT field, working mostly with Java J2EE technologies. Freelance projects in other technologies such as NodeJS, Android, PHP, HTML5, CSS3, others.</p>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Contact Section -->
-
-	<!-- Footer -->
-	<footer class="text-center" id="contact">
-		<div class="footer-above">
-			<div class="container">
-				<div class="row">
-					<div class="footer-col col-md-4">
-						<h3>Location</h3>
-						<p>Argentina,
-							<br>Buenos Aires,
-							<br>CABA</p>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>Around the Web</h3>
-						<ul class="list-inline">
-							<li>
-								<a href="https://plus.google.com/u/1/110810654528946283176" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus" data-toggle="tooltip" title="Go to my Google+"></i></a>
-							</li>
-							<li>
-								<a href="https://twitter.com/ferigui"  target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter" data-toggle="tooltip" title="Go to my twitter.com"></i></a>
-							</li>
-							<li>
-								<a href="https://ar.linkedin.com/in/fernando-iguibejeres-50393212"  target="_blank"class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin" data-toggle="tooltip" title="Go to my linkedin.com"></i></a>
-							</li>
-							<li>
-								<a href="https://github.com/figui"  target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github" data-toggle="tooltip" title="Go to my github.com"></i></a>
-							</li>
-							<li>
-								<a href="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf" class="btn-social btn-outline"><i class="fa fa-file-pdf-o" aria-hidden="true" data-toggle="tooltip" title="Download Resume as PDF"></i></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>About Freelancer</h3>
-						<p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-below">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12" id="cp">
-						Copyright &copy; Your Website 2016
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-	<div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-		<a class="btn btn-primary" href="#page-top">
-			<i class="fa fa-chevron-up"></i>
-		</a>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Fernando Iguibejeres<span class="dot"></span></a>
+    <div class="spacer"></div>
+    <div class="nav-links">
+      <a href="#experiencia" data-i18n="navExp">Experiencia</a>
+      <a href="#stack" data-i18n="navStack">Stack</a>
+      <a href="#contacto" data-i18n="navContact">Contacto</a>
     </div>
-    
-    <!-- Mobeats Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModalMobeats" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Freelance Technical Leader</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-mobeats.png" class="img-responsive img-centered" alt="">
-							<p><strong>Technical Leader &amp; FullStack Developer</strong></p>
-							<p>Analyze bussiness case for technology design. Dockerize applications for multienvironment, Responsive frontend applications. Performance issues resolution</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="https://mobeats.io/">Mobeats</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">July 2019 - At Present</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="group" role="group" aria-label="Idioma / Language">
+      <button id="btn-es" type="button" aria-pressed="true">ES</button>
+      <button id="btn-en" type="button" aria-pressed="false">EN</button>
+    </div>
+    <button id="btn-theme" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
+  </div>
+</nav>
 
-	<!-- Bitson Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModalBitson" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Freelance FullStack Developer</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-bitson.png" class="img-responsive img-centered" alt="">
-							<p>Responsive Web Application VueJS + Vuetify + NodeJS + Express + MongoDB with Mongoose + JWT + Docker</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="https://bitson.com.ar/">Bitson</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">September 2018 - July 2019</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="https://contrata.com.ar" target="_blank">contrata.com.ar</a></strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<span id="top"></span>
 
-	<!-- Uberall Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Freelance Developer</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-uberall.png" class="img-responsive img-centered" alt="">
-							<p>Mobile application development with Ionic Framework 3.0 for Android and iPhone. Using Google Maps API for georeferencing interested points</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://uberall.la">Uberall.la</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">November 2017 - January 2018</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="https://play.google.com/store/apps/details?id=gob.ar.modernizacion.mardelplata&hl=es_AR">Turismo Mar del Plata</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<header class="hero">
+  <div class="hero-id">
+    <img src="img/profile.png" alt="Fernando Iguibejeres" width="76" height="76" />
+    <div>
+      <div class="hero-name">Fernando Iguibejeres</div>
+      <div class="kicker" data-i18n="kicker">Software Architect · Full Stack</div>
+    </div>
+  </div>
+  <h1 class="display"><span data-i18n="heroBigA">Arquitecto de software y desarrollador full stack.</span> <strong data-i18n="heroBigB">Sistemas que aguantan escala real.</strong></h1>
+  <div class="ctas">
+    <a class="btn btn-solid" id="cta-mail" href="mailto:fernando.iguibejeres@gmail.com" data-i18n="ctaMail">Escribime</a>
+    <a class="btn btn-ghost" id="cta-cv" href="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf" target="_blank" rel="noopener" data-i18n="ctaCv">Descargar CV (PDF)</a>
+  </div>
+</header>
 
-	<!-- MercadoLibre.com Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Software Engineer</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-ml.png" class="img-responsive img-centered" alt="">
-							<p>The project handles several postal carriers to provide a shipping service for orders within the site. The technologies used in the project are: Grails, Oracle, MongoDB, Redis, Memcached, Ehcache, Rabbit, Elasticsearch</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://www.mercadolibre.com">MercadoLibre.com</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">July 2016 - Present</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="http://startbootstrap.com">Software Engineer</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="sec" id="experiencia">
+  <div class="sec-head">
+    <div>
+      <div class="kicker" data-i18n="navExp">Experiencia</div>
+      <h2 class="h2" data-i18n="expTitle">Una carrera, en orden.</h2>
+    </div>
+    <button class="pill-btn" id="btn-all" type="button">Expandir todo</button>
+  </div>
+  <div class="tl" id="tl"></div>
+</section>
 
-	<!-- 3pbiconsulting.com Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Freelance Software Developer</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-3pbi.png" class="img-responsive img-centered" alt="">
-							<p>Migration Microsoft Access database and queries to SQL Server 2014 Standard Edition.
-							Also migrate the integration with Sharepoint Online lists with SQL Server Integration Services (SSIS).
-							The SSIS project its deployed into the database and keep synced with a recurrent SQL Server Job</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://www.3pbiconsulting.com.ar/">3pbi Consulting</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">July 2016 - October 2016</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="http://startbootstrap.com">Freelance Software Developer</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="sec" id="stack">
+  <div class="kicker" data-i18n="navStack">Stack</div>
+  <h2 class="h2" data-i18n="stackTitle" style="margin:14px 0 44px">Con qué trabajo.</h2>
+  <div class="cards" id="cards"></div>
+</section>
 
-	<!-- cdt.com Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Software Architect</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-cdt.jpg" class="img-responsive img-centered" alt="">
-							<p>
-								Providing guidelines to projects team according to users stack, performing dynamic and static code assestments, communicating and supporting the technical decisions with all participating areas
-							</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://www.cdt.com.ar">Start Bootstrap</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="#">August 2015 - July 2016</a></strong>
-								</li>
-								<li>Service:
-									<strong><a href="#">Software Architect</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<section class="contact" id="contacto">
+  <div class="contact-in">
+    <div>
+      <h2 class="h2" data-i18n="contactTitle">Hablemos de tu próximo proyecto.</h2>
+      <p data-i18n="contactLede">Disponible para consultoría de arquitectura, liderazgo técnico y desarrollo full stack.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="mailto:fernando.iguibejeres@gmail.com" data-i18n="ctaMail">Escribime</a>
+        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf" target="_blank" rel="noopener" data-i18n="ctaCv">Descargar CV (PDF)</a>
+      </div>
+    </div>
+    <div class="links">
+      <div class="kicker" data-i18n="elsewhere">En la web</div>
+      <a href="https://github.com/figuibej" target="_blank" rel="noopener">GitHub <i>↗</i></a>
+      <a href="https://ar.linkedin.com/in/fernando-iguibejeres-50393212" target="_blank" rel="noopener">LinkedIn <i>↗</i></a>
+      <a href="https://twitter.com/ferigui" target="_blank" rel="noopener">X / Twitter <i>↗</i></a>
+      <div class="where">Buenos Aires · CABA<br />Argentina</div>
+    </div>
+  </div>
+</section>
 
-	<!-- OSDE Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Technical Analyst</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-osde.png" class="img-responsive img-centered" alt="">
-							<p>Developing technical definitions in several projects, testing, and deploying to production. Generate PoC either for project kick off or for users approval, technology research and production bug resolutions.</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://www.osdebinario.com.ar">OSDE</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="#">April 2013 - August 2015</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="#">Tecnhical Analyst</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<footer>
+  <div class="foot-in">
+    <div>© <span id="year">2026</span> Fernando Iguibejeres</div>
+    <div data-i18n="builtWith">Hecho a mano · GitHub Pages</div>
+  </div>
+</footer>
 
-	<!-- braintly.com Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Freelance Ionic + Firebase</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-braintly.png" class="img-responsive img-centered" alt="">
-							<p>Mobile application development with Ionic Framework, Android and iPhone, using PHP MySQL as backend technologies, exposed via REST with Slim microframework. Geolocated search with MySQL and Google Geo API and Chat based on Firebase</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="https://braintly.com/">Braintly</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">February 2015 - April 2015</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="http://startbootstrap.com">Web Development</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<script>
+(function () {
+  "use strict";
 
-	<!-- Oracle Modal -->
-	<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content">
-			<div class="close-modal" data-dismiss="modal">
-				<div class="lr">
-					<div class="rl">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="modal-body">
-							<h2>Ssr Java EE Software Developer</h2>
-							<hr class="star-primary">
-							<img src="img/portfolio/logo-oracle.jpg" class="img-responsive img-centered" alt="">
-							<p>Desktop application to forecast and track cost and revenue for Oracle's consulting projects. The technologies used are Swing, Spring, JPA Over Hibernate with Oracle Lite, Jasper Reports, Maven and IC with Hudson<br><br>ADF Developer with JDeveloper Studio and Oracle 11g</p>
-							<ul class="list-inline item-details">
-								<li>Client:
-									<strong><a href="http://www.oracle.com">Oracle</a>
-									</strong>
-								</li>
-								<li>Date:
-									<strong><a href="http://startbootstrap.com">October 2010 - April 2013</a>
-									</strong>
-								</li>
-								<li>Service:
-									<strong><a href="http://startbootstrap.com">Java Developer</a>
-									</strong>
-								</li>
-							</ul>
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  var COPY = {
+    es: {
+      navExp: "Experiencia", navStack: "Stack", navContact: "Contacto",
+      kicker: "Software Architect · Full Stack",
+      heroBigA: "Arquitecto de software y desarrollador full stack.",
+      heroBigB: "Sistemas que aguantan escala real.",
+      ctaMail: "Escribime", ctaCv: "Descargar CV (PDF)",
+      expTitle: "Una carrera, en orden.", expandAll: "Expandir todo", collapseAll: "Contraer todo",
+      now: "Actual", stackTitle: "Con qué trabajo.",
+      contactTitle: "Hablemos de tu próximo proyecto.",
+      contactLede: "Disponible para consultoría de arquitectura, liderazgo técnico y desarrollo full stack.",
+      elsewhere: "En la web", builtWith: "Hecho a mano · GitHub Pages",
+      themeTitle: "Cambiar tema"
+    },
+    en: {
+      navExp: "Experience", navStack: "Stack", navContact: "Contact",
+      kicker: "Software Architect · Full Stack",
+      heroBigA: "Software architect and full stack developer.",
+      heroBigB: "Systems that hold up at real scale.",
+      ctaMail: "Get in touch", ctaCv: "Download CV (PDF)",
+      expTitle: "One career, in order.", expandAll: "Expand all", collapseAll: "Collapse all",
+      now: "Current", stackTitle: "What I work with.",
+      contactTitle: "Let's talk about your next project.",
+      contactLede: "Available for architecture consulting, technical leadership and full stack development.",
+      elsewhere: "Elsewhere", builtWith: "Handmade · GitHub Pages",
+      themeTitle: "Toggle theme"
+    }
+  };
 
-	<!-- jQuery -->
-	<script src="vendor/jquery/jquery.min.js"></script>
+  var JOBS = [
+    { id:"mobeats", logo:"img/portfolio/logo-mobeats.png", company:"Mobeats", url:"https://mobeats.io/", linkLabel:"mobeats.io", current:true,
+      years:{es:"Jul 2019 — Presente", en:"Jul 2019 — Present"},
+      role:{es:"Technical Leader & Full Stack Developer", en:"Technical Leader & Full Stack Developer"},
+      desc:{es:"Análisis de casos de negocio para el diseño técnico. Dockerización de aplicaciones para múltiples entornos, frontends responsive y resolución de problemas de performance.", en:"Business case analysis for technical design. Dockerized applications across multiple environments, responsive frontends and performance issue resolution."},
+      tags:["Docker","Node.js","Vue.js","Arquitectura","Performance"] },
+    { id:"ml", logo:"img/portfolio/logo-ml.png", company:"MercadoLibre", url:"https://www.mercadolibre.com", linkLabel:"mercadolibre.com", current:true,
+      years:{es:"Jul 2016 — Presente", en:"Jul 2016 — Present"},
+      role:{es:"Software Engineer", en:"Software Engineer"},
+      desc:{es:"Plataforma de envíos que integra múltiples correos para dar servicio de logística a las órdenes del sitio, a escala regional.", en:"Shipping platform integrating several postal carriers to provide logistics for site orders, at regional scale."},
+      tags:["Grails","Oracle","MongoDB","Redis","Memcached","RabbitMQ","Elasticsearch"] },
+    { id:"bitson", logo:"img/portfolio/logo-bitson.png", company:"Bitson", url:"https://contrata.com.ar", linkLabel:"contrata.com.ar", current:false,
+      years:{es:"Sep 2018 — Jul 2019", en:"Sep 2018 — Jul 2019"},
+      role:{es:"Full Stack Developer (freelance)", en:"Full Stack Developer (freelance)"},
+      desc:{es:"Aplicación web responsive de punta a punta, con autenticación por JWT y despliegue en contenedores.", en:"End-to-end responsive web application with JWT authentication and container-based deployment."},
+      tags:["Vue.js","Vuetify","Node.js","Express","MongoDB","JWT","Docker"] },
+    { id:"uberall", logo:"img/portfolio/logo-uberall.png", company:"Uberall.la", url:"https://play.google.com/store/apps/details?id=gob.ar.modernizacion.mardelplata", linkLabel:"Turismo Mar del Plata", current:false,
+      years:{es:"Nov 2017 — Ene 2018", en:"Nov 2017 — Jan 2018"},
+      role:{es:"Mobile Developer (freelance)", en:"Mobile Developer (freelance)"},
+      desc:{es:"App móvil para Android e iOS con georreferenciación de puntos de interés turístico mediante la API de Google Maps.", en:"Mobile app for Android and iOS with geolocated points of interest through the Google Maps API."},
+      tags:["Ionic 3","Android","iOS","Google Maps API"] },
+    { id:"3pbi", logo:"img/portfolio/logo-3pbi.png", company:"3pbi Consulting", url:"http://www.3pbiconsulting.com.ar/", linkLabel:"3pbiconsulting.com.ar", current:false,
+      years:{es:"Jul 2016 — Oct 2016", en:"Jul 2016 — Oct 2016"},
+      role:{es:"Software Developer (freelance)", en:"Software Developer (freelance)"},
+      desc:{es:"Migración de base de datos y queries de Microsoft Access a SQL Server 2014, más integración con listas de SharePoint Online vía SSIS, sincronizada por un job recurrente.", en:"Migration of Microsoft Access database and queries to SQL Server 2014, plus SharePoint Online list integration via SSIS, kept in sync by a recurring job."},
+      tags:["SQL Server 2014","SSIS","SharePoint Online"] },
+    { id:"cdt", logo:"img/portfolio/logo-cdt.jpg", company:"CDT", url:"http://www.cdt.com.ar", linkLabel:"cdt.com.ar", current:false,
+      years:{es:"Ago 2015 — Jul 2016", en:"Aug 2015 — Jul 2016"},
+      role:{es:"Software Architect", en:"Software Architect"},
+      desc:{es:"Definición de guidelines para los equipos según el stack, evaluaciones de código estáticas y dinámicas, y comunicación de las decisiones técnicas con todas las áreas involucradas.", en:"Set guidelines for project teams according to their stack, ran static and dynamic code assessments, and communicated technical decisions across all participating areas."},
+      tags:["Java EE","Code review","Guidelines","Arquitectura"] },
+    { id:"braintly", logo:"img/portfolio/logo-braintly.png", company:"Braintly", url:"https://braintly.com/", linkLabel:"braintly.com", current:false,
+      years:{es:"Feb 2015 — Abr 2015", en:"Feb 2015 — Apr 2015"},
+      role:{es:"Mobile Developer (freelance)", en:"Mobile Developer (freelance)"},
+      desc:{es:"App móvil híbrida con backend PHP/MySQL expuesto por REST con Slim, búsqueda geolocalizada con la Google Geo API y chat sobre Firebase.", en:"Hybrid mobile app with a PHP/MySQL backend exposed over REST with Slim, geolocated search using the Google Geo API and Firebase-based chat."},
+      tags:["Ionic","Firebase","PHP","MySQL","Slim","REST"] },
+    { id:"osde", logo:"img/portfolio/logo-osde.png", company:"OSDE", url:"http://www.osdebinario.com.ar", linkLabel:"osdebinario.com.ar", current:false,
+      years:{es:"Abr 2013 — Ago 2015", en:"Apr 2013 — Aug 2015"},
+      role:{es:"Technical Analyst", en:"Technical Analyst"},
+      desc:{es:"Definiciones técnicas, testing y puesta en producción de múltiples proyectos. PoCs para kick-off y aprobación de usuarios, research de tecnología y resolución de bugs en producción.", en:"Technical definitions, testing and production deployment across several projects. PoCs for project kick-off and user approval, technology research and production bug resolution."},
+      tags:["Java EE","Testing","PoC","Deploy"] },
+    { id:"oracle", logo:"img/portfolio/logo-oracle.jpg", company:"Oracle", url:"http://www.oracle.com", linkLabel:"oracle.com", current:false,
+      years:{es:"Oct 2010 — Abr 2013", en:"Oct 2010 — Apr 2013"},
+      role:{es:"Java EE Developer (Ssr)", en:"Java EE Developer (Ssr)"},
+      desc:{es:"Aplicación de escritorio para proyectar y seguir costos e ingresos de los proyectos de consultoría de Oracle. También desarrollo ADF con JDeveloper Studio sobre Oracle 11g.", en:"Desktop application to forecast and track cost and revenue for Oracle's consulting projects. Also ADF development with JDeveloper Studio on Oracle 11g."},
+      tags:["Swing","Spring","JPA / Hibernate","Jasper Reports","Maven","Oracle ADF"] }
+  ];
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  var STACK = {
+    es: [
+      { label:"Backend", items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"] },
+      { label:"Frontend & Mobile", items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"] },
+      { label:"Datos & Mensajería", items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"] },
+      { label:"Plataforma", items:["Docker","Maven","CI/CD","REST","JWT","Arquitectura de sistemas"] }
+    ],
+    en: [
+      { label:"Backend", items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"] },
+      { label:"Frontend & Mobile", items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"] },
+      { label:"Data & Messaging", items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"] },
+      { label:"Platform", items:["Docker","Maven","CI/CD","REST","JWT","System architecture"] }
+    ]
+  };
 
-	<!-- Plugin JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  var LS = { lang: "fi-lang", theme: "fi-theme" };
+  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 
-	<!-- Contact Form JavaScript -->
-	<script src="js/jqBootstrapValidation.js"></script>
-	<script src="js/contact_me.js"></script>
+  function systemLang() {
+    var l = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+    return String(l).toLowerCase().indexOf("es") === 0 ? "es" : "en";
+  }
+  function systemTheme() { return mq && mq.matches ? "dark" : "light"; }
+  function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
-	<!-- Theme JavaScript -->
-	<script src="js/freelancer.min.js"></script>
+  var lang = stored(LS.lang) || systemLang();
+  var theme = stored(LS.theme) || systemTheme();
+  var open = { mobeats: true };
+  var allOpen = false;
 
-	<!-- Copyright custom script -->
-	<script type="text/javascript">
-		$(function() {
-			$("#cp").html("Copyright &copy; Your Website " + new Date().getFullYear());
-		});
-	</script>
+  var elTl = document.getElementById("tl");
+  var elCards = document.getElementById("cards");
+  var btnAll = document.getElementById("btn-all");
+  var btnTheme = document.getElementById("btn-theme");
+  var btnEs = document.getElementById("btn-es");
+  var btnEn = document.getElementById("btn-en");
 
+  function applyTheme() {
+    document.documentElement.setAttribute("data-theme", theme);
+    btnTheme.textContent = theme === "dark" ? "☀" : "☾";
+    btnTheme.setAttribute("title", COPY[lang].themeTitle);
+    btnTheme.setAttribute("aria-label", COPY[lang].themeTitle);
+  }
+
+  function renderTimeline() {
+    var t = COPY[lang];
+    elTl.textContent = "";
+    JOBS.forEach(function (j) {
+      var isOpen = allOpen || !!open[j.id];
+      var row = document.createElement("article");
+      row.className = "job";
+
+      var when = document.createElement("div");
+      when.className = "job-when";
+      when.appendChild(document.createTextNode(j.years[lang]));
+      if (j.current) {
+        var badge = document.createElement("div");
+        badge.className = "now";
+        badge.textContent = t.now;
+        when.appendChild(badge);
+      }
+      row.appendChild(when);
+
+      var right = document.createElement("div");
+
+      var head = document.createElement("button");
+      head.type = "button";
+      head.className = "job-head";
+      head.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+      var logo = document.createElement("div");
+      logo.className = "logo";
+      var img = document.createElement("span");
+      img.style.backgroundImage = "url(" + j.logo + ")";
+      logo.appendChild(img);
+      head.appendChild(logo);
+
+      var main = document.createElement("div");
+      main.className = "job-main";
+      var role = document.createElement("div");
+      role.className = "job-role";
+      role.textContent = j.role[lang];
+      var co = document.createElement("div");
+      co.className = "job-co";
+      co.textContent = j.company;
+      main.appendChild(role); main.appendChild(co);
+      head.appendChild(main);
+
+      var chev = document.createElement("div");
+      chev.className = "chev";
+      chev.textContent = isOpen ? "–" : "+";
+      head.appendChild(chev);
+
+      head.addEventListener("click", function () {
+        var wasOpen = allOpen || !!open[j.id];
+        if (allOpen) { allOpen = false; open = {}; JOBS.forEach(function (o) { open[o.id] = true; }); }
+        open[j.id] = !wasOpen;
+        syncAllLabel();
+        renderTimeline();
+      });
+      right.appendChild(head);
+
+      if (isOpen) {
+        var body = document.createElement("div");
+        body.className = "job-body";
+        var p = document.createElement("p");
+        p.textContent = j.desc[lang];
+        body.appendChild(p);
+        var tags = document.createElement("div");
+        tags.className = "tags";
+        j.tags.forEach(function (tag) {
+          var s = document.createElement("span");
+          s.textContent = tag;
+          tags.appendChild(s);
+        });
+        body.appendChild(tags);
+        if (j.url) {
+          var a = document.createElement("a");
+          a.className = "job-link";
+          a.href = j.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = j.linkLabel + " ↗";
+          body.appendChild(a);
+        }
+        right.appendChild(body);
+      }
+
+      row.appendChild(right);
+      elTl.appendChild(row);
+    });
+  }
+
+  function renderStack() {
+    elCards.textContent = "";
+    STACK[lang].forEach(function (g) {
+      var card = document.createElement("div");
+      card.className = "card";
+      var h3 = document.createElement("h3");
+      var dot = document.createElement("span");
+      dot.className = "dot";
+      h3.appendChild(dot);
+      h3.appendChild(document.createTextNode(g.label));
+      card.appendChild(h3);
+      var chips = document.createElement("div");
+      chips.className = "chips";
+      g.items.forEach(function (i) {
+        var s = document.createElement("span");
+        s.textContent = i;
+        chips.appendChild(s);
+      });
+      card.appendChild(chips);
+      elCards.appendChild(card);
+    });
+  }
+
+  function syncAllLabel() {
+    btnAll.textContent = allOpen ? COPY[lang].collapseAll : COPY[lang].expandAll;
+  }
+
+  function applyLang() {
+    var t = COPY[lang];
+    document.documentElement.lang = lang;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (n) {
+      var k = n.getAttribute("data-i18n");
+      if (t[k]) n.textContent = t[k];
+    });
+    btnEs.setAttribute("aria-pressed", lang === "es" ? "true" : "false");
+    btnEn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    syncAllLabel();
+    applyTheme();
+    renderTimeline();
+    renderStack();
+  }
+
+  btnEs.addEventListener("click", function () { lang = "es"; store(LS.lang, lang); applyLang(); });
+  btnEn.addEventListener("click", function () { lang = "en"; store(LS.lang, lang); applyLang(); });
+  btnTheme.addEventListener("click", function () {
+    theme = theme === "dark" ? "light" : "dark";
+    store(LS.theme, theme);
+    applyTheme();
+  });
+  btnAll.addEventListener("click", function () {
+    allOpen = !allOpen;
+    open = {};
+    syncAllLabel();
+    renderTimeline();
+  });
+
+  if (mq && mq.addEventListener) {
+    mq.addEventListener("change", function () {
+      if (!stored(LS.theme)) { theme = systemTheme(); applyTheme(); }
+    });
+  }
+  window.addEventListener("languagechange", function () {
+    if (!stored(LS.lang)) { lang = systemLang(); applyLang(); }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  applyLang();
+})();
+</script>
 </body>
-
 </html>
