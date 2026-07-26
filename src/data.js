@@ -5,7 +5,7 @@ export const COPY = {
   es: {
     navExp: "Experiencia", navStack: "Stack", navContact: "Contacto",
     kicker: "Software Architect · Full Stack",
-    heroLede: "Más de 15 años construyendo software: arquitectura, backend a escala y aplicaciones full stack. Hoy entre plataformas de alto tráfico y proyectos propios.",
+    heroLede: "Más de 20 años construyendo software: arquitectura, backend a escala y aplicaciones full stack. Hoy entre plataformas de alto tráfico y proyectos propios.",
     heroBigB: "Sistemas que aguantan escala real.",
     ctaMail: "Escribime", ctaCv: "Descargar CV (PDF)",
     expTitle: "Una carrera, en orden.", expandAll: "Expandir todo", collapseAll: "Contraer todo",
@@ -20,7 +20,7 @@ export const COPY = {
   en: {
     navExp: "Experience", navStack: "Stack", navContact: "Contact",
     kicker: "Software Architect · Full Stack",
-    heroLede: "15+ years building software: architecture, backend at scale and full stack applications. Currently split between high-traffic platforms and my own projects.",
+    heroLede: "20+ years building software: architecture, backend at scale and full stack applications. Currently split between high-traffic platforms and my own projects.",
     heroBigB: "Systems that hold up at real scale.",
     ctaMail: "Get in touch", ctaCv: "Download CV (PDF)",
     expTitle: "One career, in order.", expandAll: "Expand all", collapseAll: "Collapse all",

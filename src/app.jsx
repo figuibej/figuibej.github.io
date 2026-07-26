@@ -45,8 +45,8 @@ function ideDocFor(jobId, lang) {
     count: raw.length,
     lines: raw.map((p, i) => ({
       no: i + 1, k: p[0], v: p[1],
-      kc: p[0] === "  " || p[0] === "  - " ? "rgba(234,242,245,.3)" : "#7FCBE0",
-      vc: p[0] === "  - " ? "#D8A548" : "#EAF2F5"
+      kc: p[0] === "  " || p[0] === "  - " ? "color-mix(in srgb, var(--term-text) 30%, transparent)" : "#2E9EBC",
+      vc: p[0] === "  - " ? "#D8A548" : "var(--term-text)"
     }))
   };
 }
@@ -101,7 +101,8 @@ function Nav({ state, setState, t, active, barRef }) {
 }
 
 function HeroE({ t }) {
-  const marqueeLogos = JOBS.concat(JOBS);
+  const uniqueJobs = JOBS.filter((j, i) => JOBS.findIndex((x) => x.company === j.company) === i);
+  const marqueeLogos = uniqueJobs.concat(uniqueJobs);
   return (
     <header className="hero-e">
       <div className="hero-e-inner">
@@ -384,11 +385,11 @@ function Ide({ t, state, setState }) {
             return (
               <div key={j.id} onClick={() => setState((s) => ({ ...s, ideFile: j.id }))} className="ide-file"
                 style={{
-                  color: on ? "#EAF2F5" : "rgba(234,242,245,.58)",
+                  color: on ? "var(--term-text)" : "color-mix(in srgb, var(--term-text) 58%, transparent)",
                   background: on ? "rgba(46,158,188,.14)" : "transparent",
                   borderLeft: "2px solid " + (on ? "#2E9EBC" : "transparent")
                 }}>
-                <span style={{ color: j.current ? "#7BA658" : "rgba(234,242,245,.3)" }}>◆</span>{j.id}.yaml
+                <span style={{ color: j.current ? "#7BA658" : "color-mix(in srgb, var(--term-text) 30%, transparent)" }}>◆</span>{j.id}.yaml
               </div>
             );
           })}
