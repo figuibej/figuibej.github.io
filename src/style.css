@@ -1,3 +1,6 @@
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:300 900;font-display:swap;src:url('fonts/montserrat-variable.woff2') format('woff2')}
+@font-face{font-family:'Montserrat';font-style:italic;font-weight:300 400;font-display:swap;src:url('fonts/montserrat-italic-variable.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 700;font-display:swap;src:url('fonts/jetbrains-mono-variable.woff2') format('woff2')}
 :root{--bg:#F5F7F2;--surface:#ffffff;--band:#0F2631;--ink:#0F2631;--muted:#44525A;--line:rgba(15,38,49,.18);--soft:rgba(15,38,49,.04);--onband:#EAF2F5;--onbandmuted:rgba(234,242,245,.78);--accent:#2E9EBC;--accent2:#7BA658}
 [data-theme="dark"]{--bg:#0B1A21;--surface:#12252E;--band:#081419;--ink:#EAF2F5;--muted:#AABDC5;--line:rgba(234,242,245,.2);--soft:rgba(234,242,245,.05);--onband:#EAF2F5;--onbandmuted:rgba(234,242,245,.78)}
 html{scroll-behavior:smooth}
