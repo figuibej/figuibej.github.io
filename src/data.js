@@ -76,7 +76,7 @@ export const JOBS = [
     role: { es: "Software Developer (freelance)", en: "Software Developer (freelance)" },
     desc: { es: "Migración de base de datos y queries de Microsoft Access a SQL Server 2014, más integración con listas de SharePoint Online vía SSIS, sincronizada por un job recurrente.", en: "Migration of Microsoft Access database and queries to SQL Server 2014, plus SharePoint Online list integration via SSIS, kept in sync by a recurring job." },
     tags: ["SQL Server 2014", "SSIS", "SharePoint Online"] },
-  { id: "cdt", logo: "img/portfolio/logo-cdt.jpg", company: "CDT", url: "http://www.cdt.com.ar", linkLabel: "cdt.com.ar", current: false,
+  { id: "cdt", logo: "img/portfolio/logo-cdt.png", company: "CDT", url: "http://www.cdt.com.ar", linkLabel: "cdt.com.ar", current: false,
     years: { es: "Ago 2015 — Jul 2016", en: "Aug 2015 — Jul 2016" },
     role: { es: "Software Architect", en: "Software Architect" },
     desc: { es: "Definición de guidelines para los equipos según el stack, evaluaciones de código estáticas y dinámicas, y comunicación de las decisiones técnicas con todas las áreas involucradas.", en: "Set guidelines for project teams according to their stack, ran static and dynamic code assessments, and communicated technical decisions across all participating areas." },
