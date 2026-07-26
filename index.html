@@ -1,543 +1,257 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fernando Iguibejeres — Software Architect & Full Stack Developer</title>
-<meta name="description" content="Fernando Iguibejeres — Software Architect y Full Stack Developer. Más de 15 años construyendo software: arquitectura, backend a escala y aplicaciones full stack. Buenos Aires, Argentina." />
-<meta name="author" content="Fernando Iguibejeres" />
-<meta name="theme-color" content="#F5F7F2" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#0B1A21" media="(prefers-color-scheme: dark)" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Fernando Iguibejeres — Software Architect & Full Stack Developer" />
-<meta property="og:description" content="Más de 15 años construyendo software: arquitectura, backend a escala y aplicaciones full stack." />
-<meta property="og:image" content="https://figuibej.github.io/img/profile.png" />
-<meta property="og:url" content="https://figuibej.github.io/" />
-<meta name="twitter:card" content="summary" />
-<link rel="canonical" href="https://figuibej.github.io/" />
-<link rel="icon" href="img/profile.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernando Iguibejeres — Software Architect &amp; Full Stack Developer</title>
+<meta name="description" content="Fernando Iguibejeres — Software Architect y Full Stack Developer en Buenos Aires. 15+ años de experiencia: Mobeats, MercadoLibre, Oracle, OSDE y más." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
-:root{
-  --bg:#F5F7F2; --surface:#ffffff; --band:#0F2631; --ink:#0F2631; --muted:#5A6A72;
-  --line:rgba(15,38,49,.13); --soft:rgba(15,38,49,.04);
-  --onband:#EAF2F5; --onbandmuted:rgba(234,242,245,.62);
-  --accent:#2E9EBC; --accent2:#7BA658;
-  --maxw:1120px; --pad:32px;
-}
-html[data-theme="dark"]{
-  --bg:#0B1A21; --surface:#12252E; --band:#081419; --ink:#EAF2F5; --muted:#94A8B1;
-  --line:rgba(234,242,245,.15); --soft:rgba(234,242,245,.05);
-}
-*{box-sizing:border-box}
+:root{--bg:#F5F7F2;--surface:#ffffff;--band:#0F2631;--ink:#0F2631;--muted:#5A6A72;--line:rgba(15,38,49,.13);--soft:rgba(15,38,49,.04);--onband:#EAF2F5;--onbandmuted:rgba(234,242,245,.62);--accent:#2E9EBC;--accent2:#7BA658}
+[data-theme="dark"]{--bg:#0B1A21;--surface:#12252E;--band:#081419;--ink:#EAF2F5;--muted:#94A8B1;--line:rgba(234,242,245,.15);--soft:rgba(234,242,245,.05);--onband:#EAF2F5;--onbandmuted:rgba(234,242,245,.58)}
 html{scroll-behavior:smooth}
-body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
-  -webkit-font-smoothing:antialiased; text-wrap:pretty;
-}
-a{color:var(--accent); text-decoration:none}
+body{margin:0;padding:0;font-family:'Montserrat',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*{box-sizing:border-box}
+section[id]{scroll-margin-top:96px}
+a{color:var(--accent);text-decoration:none}
 a:hover{color:var(--accent2)}
-h1,h2,h3,p{margin:0}
-img{display:block}
-button{font-family:inherit}
-[hidden]{display:none !important}
-.wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad)}
-section[id]{scroll-margin-top:88px}
-
-/* nav */
-.nav{position:sticky; top:0; z-index:50; border-bottom:1px solid var(--line);
-  background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(14px)}
-.nav-in{max-width:var(--maxw); margin:0 auto; padding:12px var(--pad); min-height:68px;
-  display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px}
-.brand{display:flex; align-items:baseline; gap:8px; flex:0 0 auto; white-space:nowrap;
-  font-size:15px; font-weight:700; letter-spacing:-.2px; color:var(--ink)}
-.brand:hover{color:var(--ink)}
-.dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
-.spacer{flex:1 1 auto; min-width:12px}
-.nav-links{display:flex; align-items:center; gap:22px; flex:0 0 auto}
-.nav-links a{font-size:13px; font-weight:500; letter-spacing:.2px; color:var(--muted); white-space:nowrap}
-.nav-links a:hover{color:var(--ink)}
-.group{display:flex; align-items:center; gap:4px; padding:3px; flex:0 0 auto;
-  border:1px solid var(--line); border-radius:999px}
-.group button{border:0; cursor:pointer; background:transparent; color:var(--muted);
-  font-size:11px; font-weight:700; letter-spacing:.6px; padding:6px 11px; border-radius:999px}
-.group button[aria-pressed="true"]{background:var(--ink); color:var(--bg)}
-.icon-btn{flex:0 0 auto; width:34px; height:34px; display:grid; place-items:center;
-  border:1px solid var(--line); border-radius:50%; background:transparent;
-  color:var(--ink); cursor:pointer; font-size:14px; line-height:1}
-.icon-btn:hover{background:var(--soft)}
-
-/* hero */
-.hero{padding:104px var(--pad) 84px; max-width:var(--maxw); margin:0 auto}
-.hero-id{display:flex; align-items:center; gap:16px; margin-bottom:40px}
-.hero-id img{width:76px; height:76px; border-radius:50%; object-fit:cover; background:var(--surface)}
-.hero-name{font-size:15px; font-weight:700; letter-spacing:-.2px}
-.kicker{font-size:12px; font-weight:600; letter-spacing:3.4px; text-transform:uppercase; color:var(--accent)}
-.hero-id .kicker{margin-top:5px}
-.display{font-size:clamp(34px,6.2vw,68px); line-height:1.06; letter-spacing:-2.6px;
-  font-weight:300; color:var(--muted); max-width:20em}
-.display strong{font-weight:800; color:var(--ink)}
-.ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:44px}
-.btn{display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border-radius:999px;
-  font-size:14px; font-weight:600; letter-spacing:.3px}
-.btn-solid{background:var(--ink); color:var(--bg)}
-.btn-solid:hover{opacity:.86; color:var(--bg)}
-.btn-ghost{border:1px solid var(--line); color:var(--ink)}
-.btn-ghost:hover{background:var(--soft); color:var(--ink)}
-
-/* sections */
-.sec{max-width:var(--maxw); margin:0 auto; padding:72px var(--pad) 12px}
-.sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:32px;
-  flex-wrap:wrap; margin-bottom:44px}
-.h2{font-size:clamp(28px,4vw,40px); line-height:1.05; letter-spacing:-1.6px; font-weight:800; color:var(--ink)}
-.sec-head .kicker{margin-bottom:14px}
-.pill-btn{border:1px solid var(--line); background:transparent; color:var(--muted);
-  font-size:12px; font-weight:600; letter-spacing:.4px; padding:10px 18px; border-radius:999px; cursor:pointer}
-.pill-btn:hover{background:var(--soft); color:var(--ink)}
-
-/* timeline */
-.tl{display:flex; flex-direction:column; border-bottom:1px solid var(--line)}
-.job{display:grid; grid-template-columns:128px 1fr; border-top:1px solid var(--line)}
-.job-when{padding:30px 20px 30px 0; font-size:12px; font-weight:600; letter-spacing:.6px;
-  color:var(--muted); line-height:1.6}
-.now{display:inline-flex; margin-top:10px; padding:4px 9px; border-radius:999px;
-  background:var(--accent2); color:#12250D; font-size:10px; font-weight:700;
-  letter-spacing:.8px; text-transform:uppercase}
-.job-head{display:flex; align-items:center; gap:20px; padding:28px 4px 28px 0; width:100%;
-  border:0; background:transparent; color:inherit; text-align:left; cursor:pointer; font:inherit}
-.job-head:hover{background:var(--soft)}
-.logo{width:52px; height:52px; flex:none; border-radius:12px; background:#fff;
-  border:1px solid var(--line); display:grid; place-items:center; overflow:hidden}
-.logo span{width:76%; height:76%; background-size:contain; background-position:center; background-repeat:no-repeat}
-.job-role{font-size:19px; font-weight:700; letter-spacing:-.4px; color:var(--ink)}
-.job-co{font-size:14px; font-weight:500; color:var(--muted); margin-top:4px}
-.job-main{flex:1; min-width:0}
-.chev{width:30px; height:30px; flex:none; border-radius:50%; border:1px solid var(--line);
-  display:grid; place-items:center; color:var(--muted); font-size:15px; line-height:1}
-.job-body{padding:0 0 32px 72px; animation:riseIn .28s ease both}
-.job-body p{font-size:15px; line-height:1.68; color:var(--muted); max-width:62ch}
-.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
-.tags span{font-size:11px; font-weight:600; letter-spacing:.4px; padding:6px 11px; border-radius:6px;
-  background:var(--soft); border:1px solid var(--line); color:var(--ink)}
-.job-link{display:inline-flex; align-items:center; gap:7px; margin-top:22px;
-  font-size:13px; font-weight:600; letter-spacing:.3px}
 @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes photoIn{from{opacity:0;transform:scale(.94) translateY(18px)}to{opacity:1;transform:none}}
+@keyframes blobIn{from{opacity:0;transform:scale(.5)}to{opacity:.5;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
 
-/* stack */
-.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px}
-.card{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:26px 24px}
-.card h3{display:flex; align-items:center; gap:9px; font-size:13px; font-weight:700;
-  letter-spacing:.4px; color:var(--ink); margin-bottom:16px}
-.card .chips{display:flex; flex-wrap:wrap; gap:7px}
-.card .chips span{font-size:12px; font-weight:500; color:var(--muted); padding:5px 10px;
-  border-radius:6px; background:var(--soft)}
+.app{background:var(--bg);color:var(--ink);min-height:100vh;font-family:'Montserrat',system-ui,sans-serif;transition:background .5s ease,color .4s ease}
 
-/* contact */
-.contact{max-width:var(--maxw); margin:0 auto; padding:88px var(--pad) 96px}
-.contact-in{background:var(--band); border-radius:28px; padding:68px 56px;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:56px; align-items:center}
-.contact-in .h2{color:var(--onband)}
-.contact-in p{margin-top:20px; font-size:17px; line-height:1.6; color:var(--onbandmuted); max-width:34em}
-.contact-in .btn-solid{background:var(--onband); color:var(--band)}
-.contact-in .btn-solid:hover{opacity:.88; color:var(--band)}
-.contact-in .btn-ghost{border-color:rgba(234,242,245,.28); color:var(--onband)}
-.contact-in .btn-ghost:hover{background:rgba(234,242,245,.1); color:var(--onband)}
-.links{display:flex; flex-direction:column}
-.links .kicker{color:rgba(234,242,245,.45); letter-spacing:2.4px; font-size:11px; margin-bottom:14px}
-.links a{display:flex; align-items:center; justify-content:space-between; padding:14px 0;
-  border-bottom:1px solid rgba(234,242,245,.14); color:var(--onband); font-size:15px; font-weight:500}
-.links a:last-of-type{border-bottom:0}
-.links a:hover{color:var(--accent2)}
-.links a i{opacity:.5; font-style:normal}
-.where{margin-top:24px; font-size:13px; line-height:1.6; color:rgba(234,242,245,.45)}
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 86%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:background .4s ease,border-color .4s ease}
+.nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.nav-inner{max-width:1120px;margin:0 auto;padding:12px 32px;min-height:68px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px}
+.nav-brand{font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--ink);display:flex;align-items:baseline;gap:8px;flex:0 0 auto;white-space:nowrap}
+.nav-brand-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+.nav-spacer{flex:1 1 auto;min-width:12px}
+.nav-links{display:flex;align-items:center;gap:22px;flex:0 0 auto}
+.nav-link{position:relative;font-size:13px;font-weight:500;letter-spacing:.2px;color:var(--muted);white-space:nowrap;padding:6px 0;transition:color .25s ease}
+.nav-link:hover,.nav-link.is-active{color:var(--ink)}
+.nav-link-underline{position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.nav-link-underline.is-active{transform:scaleX(1)}
+.mode-switch,.layout-switch{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;flex:0 0 auto}
+.lang-switch{display:flex;align-items:center;gap:4px;padding:3px;border:1px solid var(--line);border-radius:999px;flex:0 0 auto}
+.mode-btn{border:0;cursor:pointer;font-family:inherit;font-size:11px;font-weight:600;letter-spacing:.2px;padding:6px 12px;border-radius:999px;background:transparent;color:var(--muted);display:flex;align-items:center;gap:6px;transition:background .25s ease,color .25s ease}
+.mode-btn.is-active{background:var(--ink);color:var(--bg)}
+.layout-btn{border:0;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;width:28px;height:26px;border-radius:999px;background:transparent;color:var(--muted);transition:background .25s ease,color .25s ease}
+.layout-btn.is-active{background:var(--ink);color:var(--bg)}
+.lang-btn{border:0;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.6px;padding:6px 11px;border-radius:999px;background:transparent;color:var(--muted)}
+.lang-btn.is-active{background:var(--ink);color:var(--bg)}
+.theme-btn{flex:0 0 auto;width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;font-size:14px;line-height:1}
+.theme-btn:hover{background:var(--soft)}
 
-footer{border-top:1px solid var(--line); padding:30px var(--pad)}
-.foot-in{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center;
-  justify-content:space-between; gap:20px; flex-wrap:wrap;
-  font-size:12px; font-weight:500; color:var(--muted)}
+/* Shared buttons */
+.btn-solid{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;letter-spacing:.3px}
+.btn-solid:hover{opacity:.86;color:var(--bg)}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600;letter-spacing:.3px}
+.btn-outline:hover{background:var(--soft);color:var(--ink)}
+.btn-solid-onband{display:inline-flex;align-items:center;padding:15px 26px;border-radius:999px;background:var(--onband);color:var(--band);font-size:14px;font-weight:600}
+.btn-solid-onband:hover{opacity:.88;color:var(--band)}
+.btn-outline-onband{display:inline-flex;align-items:center;padding:15px 26px;border-radius:999px;border:1px solid rgba(234,242,245,.28);color:var(--onband);font-size:14px;font-weight:600}
+.btn-outline-onband:hover{background:rgba(234,242,245,.1);color:var(--onband)}
 
-@media (max-width:640px){
-  :root{--pad:20px}
-  .hero{padding:64px var(--pad) 56px}
-  .job{grid-template-columns:1fr}
-  .job-when{padding:22px 0 0}
-  .job-head{padding:16px 0 22px}
-  .job-body{padding-left:0}
-  .contact-in{padding:44px 28px}
-  .nav-links{gap:16px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .job-body{animation:none}
-}
+/* Hero A */
+.hero-a{max-width:1120px;margin:0 auto;padding:96px 32px 88px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:64px;align-items:center}
+.hero-a-kicker{font-size:12px;font-weight:600;letter-spacing:3.4px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;animation:heroIn .7s cubic-bezier(.22,1,.36,1) .05s both}
+.hero-a-title{margin:0;font-size:74px;line-height:.94;letter-spacing:-3px;font-weight:800;color:var(--ink);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .14s both}
+.hero-a-lede{margin:26px 0 0;font-size:20px;line-height:1.5;font-weight:400;color:var(--muted);max-width:30em;animation:heroIn .8s cubic-bezier(.22,1,.36,1) .26s both}
+.hero-a-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;animation:heroIn .8s cubic-bezier(.22,1,.36,1) .36s both}
+.hero-a-stats{display:flex;gap:36px;margin-top:52px;padding-top:30px;border-top:1px solid var(--line);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .46s both}
+.stat-num{font-size:30px;font-weight:800;letter-spacing:-1px;color:var(--ink)}
+.stat-label{font-size:12px;font-weight:500;letter-spacing:.4px;color:var(--muted);margin-top:4px}
+.hero-a-photo-wrap{position:relative}
+.hero-a-blob1{position:absolute;top:-26px;right:-18px;width:148px;height:148px;border-radius:50%;background:var(--accent2);opacity:.5;animation:blobIn .9s cubic-bezier(.22,1,.36,1) .5s both}
+.hero-a-blob2{position:absolute;bottom:-30px;left:-34px;width:96px;height:96px;border-radius:50%;background:var(--accent);opacity:.35;animation:blobIn .9s cubic-bezier(.22,1,.36,1) .62s both}
+.hero-a-photo{position:relative;width:100%;aspect-ratio:1;object-fit:cover;border-radius:28px;background:var(--surface);box-shadow:0 24px 60px rgba(15,38,49,.18);animation:photoIn .9s cubic-bezier(.22,1,.36,1) .2s both}
+
+/* Hero B */
+.hero-b{background:var(--band);padding:84px 32px 78px}
+.hero-b-inner{max-width:780px;margin:0 auto;text-align:center}
+.hero-b-photo{width:176px;height:176px;object-fit:cover;border-radius:50%;border:3px solid rgba(234,242,245,.18);box-shadow:0 18px 44px rgba(0,0,0,.35);animation:photoIn .9s cubic-bezier(.22,1,.36,1) .08s both}
+.hero-b-title{margin:30px 0 0;font-size:56px;line-height:1;letter-spacing:-2.2px;font-weight:800;color:var(--onband);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .2s both}
+.hero-b-divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:24px 0 0}
+.hero-b-divider-line{height:1px;width:54px;background:rgba(234,242,245,.25)}
+.hero-b-divider-dot{width:7px;height:7px;border-radius:50%;background:var(--accent2)}
+.hero-b-lede{margin:24px auto 0;font-size:18px;line-height:1.6;color:var(--onbandmuted);max-width:34em}
+.hero-b-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+
+/* Hero C */
+.hero-c{max-width:1120px;margin:0 auto;padding:104px 32px 84px}
+.hero-c-top{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+.hero-c-photo{width:76px;height:76px;object-fit:cover;border-radius:50%;background:var(--surface)}
+.hero-c-name{font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
+.hero-c-kicker{font-size:12px;font-weight:500;letter-spacing:2.6px;text-transform:uppercase;color:var(--accent);margin-top:5px}
+.hero-c-title{margin:0;font-size:68px;line-height:1.06;letter-spacing:-2.6px;font-weight:300;color:var(--muted);max-width:20em}
+.hero-c-title strong{font-weight:800;color:var(--ink)}
+.hero-c-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
+
+/* Hero D */
+.hero-d{max-width:1120px;margin:0 auto;padding:40px 32px 76px}
+.hero-d-panel{background:var(--band);border-radius:32px;padding:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px;align-items:stretch;overflow:hidden;animation:photoIn .9s cubic-bezier(.22,1,.36,1) both}
+.hero-d-photo-box{border-radius:24px;overflow:hidden;min-height:380px;background:var(--surface)}
+.hero-d-photo{width:100%;height:100%;min-height:380px;object-fit:cover;display:block}
+.hero-d-text{padding:40px 36px 34px;display:flex;flex-direction:column;justify-content:center}
+.hero-d-kicker{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent2);margin-bottom:18px;animation:heroIn .7s cubic-bezier(.22,1,.36,1) .18s both}
+.hero-d-title{margin:0;font-size:46px;line-height:1.02;letter-spacing:-2px;font-weight:800;color:var(--onband);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .26s both}
+.hero-d-lede{margin:20px 0 0;font-size:16px;line-height:1.6;color:var(--onbandmuted);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .34s both}
+.hero-d-stats{display:grid;grid-template-columns:repeat(3,auto);gap:28px;justify-content:start;margin:30px 0 0;padding-top:24px;border-top:1px solid rgba(234,242,245,.16);animation:heroIn .8s cubic-bezier(.22,1,.36,1) .42s both}
+.hero-d-stat-num{font-size:26px;font-weight:800;letter-spacing:-1px;color:var(--onband)}
+.hero-d-stat-label{font-size:11px;font-weight:500;color:var(--onbandmuted);margin-top:3px}
+.hero-d-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;animation:heroIn .8s cubic-bezier(.22,1,.36,1) .5s both}
+.hero-d-cta-solid{display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;background:var(--onband);color:var(--band);font-size:13px;font-weight:600;transition:transform .22s ease,opacity .22s ease}
+.hero-d-cta-solid:hover{opacity:.9;color:var(--band);transform:translateY(-2px)}
+.hero-d-cta-outline{display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;border:1px solid rgba(234,242,245,.28);color:var(--onband);font-size:13px;font-weight:600;transition:transform .22s ease,background .22s ease}
+.hero-d-cta-outline:hover{background:rgba(234,242,245,.1);color:var(--onband);transform:translateY(-2px)}
+
+/* Hero E */
+.hero-e{padding:76px 0 60px;overflow:hidden}
+.hero-e-inner{max-width:1360px;margin:0 auto;padding:0 32px}
+.hero-e-top{display:flex;align-items:center;gap:18px;margin-bottom:26px;animation:heroIn .7s cubic-bezier(.22,1,.36,1) both}
+.hero-e-photo{width:62px;height:62px;object-fit:cover;border-radius:50%;background:var(--surface)}
+.hero-e-kicker{font-size:12px;font-weight:600;letter-spacing:3.2px;text-transform:uppercase;color:var(--accent)}
+.hero-e-divider{flex:1;height:1px;background:var(--line)}
+.hero-e-location{font-size:12px;font-weight:500;letter-spacing:.4px;color:var(--muted)}
+.hero-e-title-1{margin:0;font-size:clamp(48px,11.2vw,172px);line-height:.86;letter-spacing:-.055em;font-weight:800;color:var(--ink);text-transform:uppercase;animation:heroIn .9s cubic-bezier(.22,1,.36,1) .1s both}
+.hero-e-title-2{margin:0;font-size:clamp(48px,11.2vw,172px);line-height:.86;letter-spacing:-.055em;font-weight:300;color:var(--muted);text-transform:uppercase;animation:heroIn .9s cubic-bezier(.22,1,.36,1) .2s both}
+.hero-e-bottom{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:end;margin-top:44px;animation:heroIn .9s cubic-bezier(.22,1,.36,1) .32s both}
+.hero-e-lede{margin:0;font-size:19px;line-height:1.55;color:var(--muted);max-width:32em}
+.hero-e-ctas{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.hero-e-cta-solid{display:inline-flex;align-items:center;padding:15px 26px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;transition:transform .22s ease,opacity .22s ease}
+.hero-e-cta-solid:hover{opacity:.88;transform:translateY(-2px)}
+.hero-e-cta-outline{display:inline-flex;align-items:center;padding:15px 26px;border-radius:999px;border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600;transition:transform .22s ease,background .22s ease}
+.hero-e-cta-outline:hover{background:var(--soft);color:var(--ink);transform:translateY(-2px)}
+.hero-e-marquee-wrap{margin-top:60px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);animation:heroIn .9s cubic-bezier(.22,1,.36,1) .44s both}
+.hero-e-marquee-track{display:flex;width:max-content;animation:marquee 34s linear infinite}
+.hero-e-marquee-item{width:108px;height:44px;margin:0 26px;flex:none;background-size:contain;background-position:center;background-repeat:no-repeat;opacity:.5;filter:grayscale(1)}
+
+/* Experience section */
+.section-exp{max-width:1120px;margin:0 auto;padding:72px 32px 24px}
+.section-exp-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.section-kicker{font-size:12px;font-weight:600;letter-spacing:3.4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.section-title{margin:0;font-size:40px;line-height:1.05;letter-spacing:-1.6px;font-weight:800;color:var(--ink)}
+.section-title.is-spaced{margin:0 0 44px}
+.btn-toggle{border:1px solid var(--line);background:transparent;color:var(--muted);font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.4px;padding:10px 18px;border-radius:999px;cursor:pointer}
+.btn-toggle:hover{background:var(--soft);color:var(--ink)}
+.job-list{display:flex;flex-direction:column}
+.job-row{display:grid;grid-template-columns:128px 1fr;gap:0;border-top:1px solid var(--line)}
+.job-years{padding:30px 20px 30px 0;font-size:12px;font-weight:600;letter-spacing:.6px;color:var(--muted);line-height:1.6}
+.job-now-badge{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:4px 9px;border-radius:999px;background:var(--accent2);color:#12250D;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
+.job-header{display:flex;align-items:center;gap:20px;padding:28px 4px 28px 0;cursor:pointer;transition:background .25s ease,padding-left .25s ease}
+.job-header:hover{background:var(--soft);padding-left:10px}
+.job-logo-box{width:52px;height:52px;flex:none;border-radius:12px;background:#ffffff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.job-logo{width:76%;height:76%;background-size:contain;background-position:center;background-repeat:no-repeat}
+.job-text{flex:1;min-width:0}
+.job-role{font-size:19px;font-weight:700;letter-spacing:-.4px;color:var(--ink)}
+.job-company{font-size:14px;font-weight:500;color:var(--muted);margin-top:4px}
+.job-chevron{width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:11px;line-height:1;transition:transform .42s cubic-bezier(.22,1,.36,1),border-color .25s ease,color .25s ease}
+.job-detail-rows{display:grid;transition:grid-template-rows .42s cubic-bezier(.22,1,.36,1)}
+.job-detail-inner{overflow:hidden;min-height:0}
+.job-detail-content{padding:0 0 32px 72px;transition:opacity .34s ease .06s,transform .42s cubic-bezier(.22,1,.36,1) .04s}
+.job-desc{margin:0;font-size:15px;line-height:1.68;color:var(--muted);max-width:62ch}
+.job-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{font-size:11px;font-weight:600;letter-spacing:.4px;padding:6px 11px;border-radius:6px;background:var(--soft);border:1px solid var(--line);color:var(--ink);transition:background .2s ease,transform .2s ease}
+.tag:hover{background:var(--accent);color:#ffffff;transform:translateY(-2px)}
+.job-link{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:13px;font-weight:600;letter-spacing:.3px}
+.job-list-end{border-top:1px solid var(--line)}
+
+/* Stack section */
+.section-stack{max-width:1120px;margin:0 auto;padding:76px 32px 12px}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.stack-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease,border-color .3s ease}
+.stack-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,38,49,.1);border-color:var(--accent)}
+.stack-card-label{font-size:13px;font-weight:700;letter-spacing:.4px;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.stack-card-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+.stack-items{display:flex;flex-wrap:wrap;gap:7px}
+.stack-item{font-size:12px;font-weight:500;color:var(--muted);padding:5px 10px;border-radius:6px;background:var(--soft)}
+
+/* Contact section */
+.section-contact{max-width:1120px;margin:0 auto;padding:88px 32px 96px}
+.contact-panel{background:var(--band);border-radius:28px;padding:68px 56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center}
+.contact-title{margin:0;font-size:42px;line-height:1.06;letter-spacing:-1.8px;font-weight:800;color:var(--onband)}
+.contact-lede{margin:20px 0 0;font-size:17px;line-height:1.6;color:var(--onbandmuted);max-width:34em}
+.contact-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.contact-cta-solid{display:inline-flex;align-items:center;padding:15px 28px;border-radius:999px;background:var(--onband);color:var(--band);font-size:14px;font-weight:600}
+.contact-cta-solid:hover{opacity:.88;color:var(--band)}
+.contact-cta-outline{display:inline-flex;align-items:center;padding:15px 28px;border-radius:999px;border:1px solid rgba(234,242,245,.28);color:var(--onband);font-size:14px;font-weight:600}
+.contact-cta-outline:hover{background:rgba(234,242,245,.1);color:var(--onband)}
+.contact-links{display:flex;flex-direction:column;gap:2px}
+.contact-links-label{font-size:11px;font-weight:600;letter-spacing:2.4px;text-transform:uppercase;color:rgba(234,242,245,.45);margin-bottom:14px}
+.contact-link{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(234,242,245,.14);color:var(--onband);font-size:15px;font-weight:500}
+.contact-link:hover{color:var(--accent2)}
+.contact-link.is-last{border-bottom:0}
+.contact-link-arrow{opacity:.5}
+.contact-location{margin-top:24px;font-size:13px;line-height:1.6;color:rgba(234,242,245,.45)}
+
+/* Footer */
+.footer{border-top:1px solid var(--line);padding:30px 32px}
+.footer-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;font-weight:500;color:var(--muted)}
+
+/* Console mode */
+.console{min-height:calc(100vh - 68px);background:radial-gradient(circle at 18% 0%, #12303D 0%, #081419 62%);padding:48px 28px 72px;animation:riseIn .4s ease both}
+.console-window{max-width:980px;margin:0 auto;border-radius:12px;overflow:hidden;background:#061115;border:1px solid rgba(234,242,245,.14);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.console-titlebar{display:flex;align-items:center;gap:8px;padding:13px 16px;background:#0C1E25;border-bottom:1px solid rgba(234,242,245,.1)}
+.console-dot{width:11px;height:11px;border-radius:50%}
+.console-dot.is-red{background:#E05A4E}
+.console-dot.is-yellow{background:#D8A548}
+.console-dot.is-green{background:#7BA658}
+.console-path{margin-left:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:rgba(234,242,245,.45)}
+.console-body{padding:24px 26px 30px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13.5px;line-height:1.85;color:#C8DBE2;max-height:60vh;overflow-y:auto}
+.console-line{margin-bottom:3px}
+.console-line-cmd{display:flex;gap:9px;margin-top:16px}
+.console-arrow{color:#7BA658}
+.console-prompt{color:#2E9EBC}
+.console-cmdtext{color:#EAF2F5}
+.console-line-out{color:rgba(200,219,226,.82);white-space:pre-wrap}
+.console-line-kv{display:flex;gap:14px;flex-wrap:wrap}
+.console-kv-key{color:#7BA658;min-width:148px;flex:none}
+.console-kv-val{color:rgba(200,219,226,.9)}
+.console-cursor{width:9px;height:17px;background:#EAF2F5;display:inline-block;animation:blink 1.1s step-end infinite}
+.console-cmdbar{padding:16px 26px 20px;border-top:1px solid rgba(234,242,245,.1);display:flex;gap:8px;flex-wrap:wrap;background:#081419}
+.console-cmd-btn{border:1px solid rgba(46,158,188,.4);background:rgba(46,158,188,.1);color:#7FCBE0;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;padding:7px 13px;border-radius:6px;transition:background .2s ease,transform .2s ease}
+.console-cmd-btn:hover{background:rgba(46,158,188,.26);transform:translateY(-2px)}
+
+/* IDE mode */
+.ide{min-height:calc(100vh - 68px);background:#0B1A21;animation:riseIn .4s ease both}
+.ide-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(254px,1fr));min-height:calc(100vh - 68px)}
+.ide-sidebar{max-width:254px;background:#081419;border-right:1px solid rgba(234,242,245,.09);padding:22px 0}
+.ide-explorer-label{padding:0 18px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:rgba(234,242,245,.38)}
+.ide-folder{padding:0 18px 10px;display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;color:rgba(234,242,245,.72)}
+.ide-folder-arrow{color:#7BA658}
+.ide-file{display:flex;align-items:center;gap:9px;padding:7px 18px 7px 34px;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;transition:background .18s ease,color .18s ease}
+.ide-file:hover{background:rgba(234,242,245,.06)}
+.ide-sidebar-links{margin-top:24px;padding:14px 18px 0;border-top:1px solid rgba(234,242,245,.09);display:flex;flex-direction:column;gap:4px}
+.ide-sidebar-link{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#7FCBE0}
+.ide-main{display:flex;flex-direction:column;min-width:0}
+.ide-tabbar{display:flex;align-items:stretch;background:#061115;border-bottom:1px solid rgba(234,242,245,.09)}
+.ide-tab{display:flex;align-items:center;gap:10px;padding:12px 20px;background:#0B1A21;border-right:1px solid rgba(234,242,245,.09);border-top:2px solid var(--accent);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;color:#EAF2F5}
+.ide-tab-icon{color:#7BA658}
+.ide-tab-close{color:rgba(234,242,245,.35)}
+.ide-editor{flex:1;display:flex;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;line-height:2.05;padding:22px 0 40px;overflow-x:auto}
+.ide-gutter{flex:none;width:58px;text-align:right;padding-right:18px;color:rgba(234,242,245,.22);user-select:none}
+.ide-code{flex:1;min-width:0;padding-right:30px}
+.ide-code-line{white-space:pre-wrap}
+.ide-statusbar{padding:8px 20px;background:var(--accent);display:flex;align-items:center;gap:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#04222C}
+.ide-statusbar-spacer{flex:1}
+
 </style>
 </head>
 <body>
-
-<nav class="nav">
-  <div class="nav-in">
-    <a class="brand" href="#top">Fernando Iguibejeres<span class="dot"></span></a>
-    <div class="spacer"></div>
-    <div class="nav-links">
-      <a href="#experiencia" data-i18n="navExp">Experiencia</a>
-      <a href="#stack" data-i18n="navStack">Stack</a>
-      <a href="#contacto" data-i18n="navContact">Contacto</a>
-    </div>
-    <div class="group" role="group" aria-label="Idioma / Language">
-      <button id="btn-es" type="button" aria-pressed="true">ES</button>
-      <button id="btn-en" type="button" aria-pressed="false">EN</button>
-    </div>
-    <button id="btn-theme" class="icon-btn" type="button" aria-label="Cambiar tema">☾</button>
-  </div>
-</nav>
-
-<span id="top"></span>
-
-<header class="hero">
-  <div class="hero-id">
-    <img src="img/profile.png" alt="Fernando Iguibejeres" width="76" height="76" />
-    <div>
-      <div class="hero-name">Fernando Iguibejeres</div>
-      <div class="kicker" data-i18n="kicker">Software Architect · Full Stack</div>
-    </div>
-  </div>
-  <h1 class="display"><span data-i18n="heroBigA">Arquitecto de software y desarrollador full stack.</span> <strong data-i18n="heroBigB">Sistemas que aguantan escala real.</strong></h1>
-  <div class="ctas">
-    <a class="btn btn-solid" id="cta-mail" href="mailto:fernando.iguibejeres@gmail.com" data-i18n="ctaMail">Escribime</a>
-    <a class="btn btn-ghost" id="cta-cv" href="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf" target="_blank" rel="noopener" data-i18n="ctaCv">Descargar CV (PDF)</a>
-  </div>
-</header>
-
-<section class="sec" id="experiencia">
-  <div class="sec-head">
-    <div>
-      <div class="kicker" data-i18n="navExp">Experiencia</div>
-      <h2 class="h2" data-i18n="expTitle">Una carrera, en orden.</h2>
-    </div>
-    <button class="pill-btn" id="btn-all" type="button">Expandir todo</button>
-  </div>
-  <div class="tl" id="tl"></div>
-</section>
-
-<section class="sec" id="stack">
-  <div class="kicker" data-i18n="navStack">Stack</div>
-  <h2 class="h2" data-i18n="stackTitle" style="margin:14px 0 44px">Con qué trabajo.</h2>
-  <div class="cards" id="cards"></div>
-</section>
-
-<section class="contact" id="contacto">
-  <div class="contact-in">
-    <div>
-      <h2 class="h2" data-i18n="contactTitle">Hablemos de tu próximo proyecto.</h2>
-      <p data-i18n="contactLede">Disponible para consultoría de arquitectura, liderazgo técnico y desarrollo full stack.</p>
-      <div class="ctas">
-        <a class="btn btn-solid" href="mailto:fernando.iguibejeres@gmail.com" data-i18n="ctaMail">Escribime</a>
-        <a class="btn btn-ghost" href="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf" target="_blank" rel="noopener" data-i18n="ctaCv">Descargar CV (PDF)</a>
-      </div>
-    </div>
-    <div class="links">
-      <div class="kicker" data-i18n="elsewhere">En la web</div>
-      <a href="https://github.com/figuibej" target="_blank" rel="noopener">GitHub <i>↗</i></a>
-      <a href="https://ar.linkedin.com/in/fernando-iguibejeres-50393212" target="_blank" rel="noopener">LinkedIn <i>↗</i></a>
-      <a href="https://twitter.com/ferigui" target="_blank" rel="noopener">X / Twitter <i>↗</i></a>
-      <div class="where">Buenos Aires · CABA<br />Argentina</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="foot-in">
-    <div>© <span id="year">2026</span> Fernando Iguibejeres</div>
-    <div data-i18n="builtWith">Hecho a mano · GitHub Pages</div>
-  </div>
-</footer>
-
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script>
-(function () {
-  "use strict";
+(()=>{var g="fernando.igui@gmail.com",f="https://docs.google.com/document/d/1ZLj81jm0fPMRIhM5oRZTHl9WvyQh6hcNfx4yt0D1eOw/export?format=pdf",S={es:{navExp:"Experiencia",navStack:"Stack",navContact:"Contacto",kicker:"Software Architect \xB7 Full Stack",heroLede:"M\xE1s de 15 a\xF1os construyendo software: arquitectura, backend a escala y aplicaciones full stack. Hoy entre plataformas de alto tr\xE1fico y proyectos propios.",heroBigA:"Arquitecto de software y desarrollador full stack.",heroBigB:"Sistemas que aguantan escala real.",ctaMail:"Escribime",ctaCv:"Descargar CV (PDF)",statYears:"A\xF1os en IT",statRoles:"Roles y clientes",statLoc:"Buenos Aires",expTitle:"Una carrera, en orden.",expandAll:"Expandir todo",collapseAll:"Contraer todo",now:"Actual",stackTitle:"Con qu\xE9 trabajo.",contactTitle:"Hablemos de tu pr\xF3ximo proyecto.",contactLede:"Disponible para consultor\xEDa de arquitectura, liderazgo t\xE9cnico y desarrollo full stack.",elsewhere:"En la web",builtWith:"Hecho a mano \xB7 GitHub Pages",themeTitle:"Cambiar tema",layout:"Layout",layA:"Editorial",layB:"Centrado",layC:"Minimal",layD:"Panel",layE:"Cartel",modeSite:"Sitio",modeTerm:"Consola",modeIde:"IDE",ideFolder:"carrera",modeSiteTitle:"Ver como sitio web",modeTermTitle:"Ver como consola de comandos",modeIdeTitle:"Ver como editor de c\xF3digo"},en:{navExp:"Experience",navStack:"Stack",navContact:"Contact",kicker:"Software Architect \xB7 Full Stack",heroLede:"15+ years building software: architecture, backend at scale and full stack applications. Currently split between high-traffic platforms and my own projects.",heroBigA:"Software architect and full stack developer.",heroBigB:"Systems that hold up at real scale.",ctaMail:"Get in touch",ctaCv:"Download CV (PDF)",statYears:"Years in IT",statRoles:"Roles & clients",statLoc:"Buenos Aires",expTitle:"One career, in order.",expandAll:"Expand all",collapseAll:"Collapse all",now:"Current",stackTitle:"What I work with.",contactTitle:"Let's talk about your next project.",contactLede:"Available for architecture consulting, technical leadership and full stack development.",elsewhere:"Elsewhere",builtWith:"Handmade \xB7 GitHub Pages",themeTitle:"Toggle theme",layout:"Layout",layA:"Editorial",layB:"Centered",layC:"Minimal",layD:"Panel",layE:"Poster",modeSite:"Site",modeTerm:"Console",modeIde:"IDE",ideFolder:"career",modeSiteTitle:"View as a website",modeTermTitle:"View as a command console",modeIdeTitle:"View as a code editor"}},b=[{id:"mobeats",logo:"img/portfolio/logo-mobeats.png",company:"Mobeats",url:"https://mobeats.io/",linkLabel:"mobeats.io",current:!0,years:{es:"Jul 2019 \u2014 Presente",en:"Jul 2019 \u2014 Present"},role:{es:"Technical Leader & Full Stack Developer",en:"Technical Leader & Full Stack Developer"},desc:{es:"An\xE1lisis de casos de negocio para el dise\xF1o t\xE9cnico. Dockerizaci\xF3n de aplicaciones para m\xFAltiples entornos, frontends responsive y resoluci\xF3n de problemas de performance.",en:"Business case analysis for technical design. Dockerized applications across multiple environments, responsive frontends and performance issue resolution."},tags:["Docker","Node.js","Vue.js","Arquitectura","Performance"]},{id:"ml",logo:"img/portfolio/logo-ml.png",company:"MercadoLibre",url:"https://www.mercadolibre.com",linkLabel:"mercadolibre.com",current:!0,years:{es:"Jul 2016 \u2014 Presente",en:"Jul 2016 \u2014 Present"},role:{es:"Software Engineer",en:"Software Engineer"},desc:{es:"Plataforma de env\xEDos que integra m\xFAltiples correos para dar servicio de log\xEDstica a las \xF3rdenes del sitio, a escala regional.",en:"Shipping platform integrating several postal carriers to provide logistics for site orders, at regional scale."},tags:["Grails","Oracle","MongoDB","Redis","Memcached","RabbitMQ","Elasticsearch"]},{id:"bitson",logo:"img/portfolio/logo-bitson.png",company:"Bitson",url:"https://contrata.com.ar",linkLabel:"contrata.com.ar",current:!1,years:{es:"Sep 2018 \u2014 Jul 2019",en:"Sep 2018 \u2014 Jul 2019"},role:{es:"Full Stack Developer (freelance)",en:"Full Stack Developer (freelance)"},desc:{es:"Aplicaci\xF3n web responsive de punta a punta, con autenticaci\xF3n por JWT y despliegue en contenedores.",en:"End-to-end responsive web application with JWT authentication and container-based deployment."},tags:["Vue.js","Vuetify","Node.js","Express","MongoDB","JWT","Docker"]},{id:"uberall",logo:"img/portfolio/logo-uberall.png",company:"Uberall.la",url:"https://play.google.com/store/apps/details?id=gob.ar.modernizacion.mardelplata",linkLabel:"Turismo Mar del Plata",current:!1,years:{es:"Nov 2017 \u2014 Ene 2018",en:"Nov 2017 \u2014 Jan 2018"},role:{es:"Mobile Developer (freelance)",en:"Mobile Developer (freelance)"},desc:{es:"App m\xF3vil para Android e iOS con georreferenciaci\xF3n de puntos de inter\xE9s tur\xEDstico mediante la API de Google Maps.",en:"Mobile app for Android and iOS with geolocated points of interest through the Google Maps API."},tags:["Ionic 3","Android","iOS","Google Maps API"]},{id:"3pbi",logo:"img/portfolio/logo-3pbi.png",company:"3pbi Consulting",url:"http://www.3pbiconsulting.com.ar/",linkLabel:"3pbiconsulting.com.ar",current:!1,years:{es:"Jul 2016 \u2014 Oct 2016",en:"Jul 2016 \u2014 Oct 2016"},role:{es:"Software Developer (freelance)",en:"Software Developer (freelance)"},desc:{es:"Migraci\xF3n de base de datos y queries de Microsoft Access a SQL Server 2014, m\xE1s integraci\xF3n con listas de SharePoint Online v\xEDa SSIS, sincronizada por un job recurrente.",en:"Migration of Microsoft Access database and queries to SQL Server 2014, plus SharePoint Online list integration via SSIS, kept in sync by a recurring job."},tags:["SQL Server 2014","SSIS","SharePoint Online"]},{id:"cdt",logo:"img/portfolio/logo-cdt.jpg",company:"CDT",url:"http://www.cdt.com.ar",linkLabel:"cdt.com.ar",current:!1,years:{es:"Ago 2015 \u2014 Jul 2016",en:"Aug 2015 \u2014 Jul 2016"},role:{es:"Software Architect",en:"Software Architect"},desc:{es:"Definici\xF3n de guidelines para los equipos seg\xFAn el stack, evaluaciones de c\xF3digo est\xE1ticas y din\xE1micas, y comunicaci\xF3n de las decisiones t\xE9cnicas con todas las \xE1reas involucradas.",en:"Set guidelines for project teams according to their stack, ran static and dynamic code assessments, and communicated technical decisions across all participating areas."},tags:["Java EE","Code review","Guidelines","Arquitectura"]},{id:"braintly",logo:"img/portfolio/logo-braintly.png",company:"Braintly",url:"https://braintly.com/",linkLabel:"braintly.com",current:!1,years:{es:"Feb 2015 \u2014 Abr 2015",en:"Feb 2015 \u2014 Apr 2015"},role:{es:"Mobile Developer (freelance)",en:"Mobile Developer (freelance)"},desc:{es:"App m\xF3vil h\xEDbrida con backend PHP/MySQL expuesto por REST con Slim, b\xFAsqueda geolocalizada con la Google Geo API y chat sobre Firebase.",en:"Hybrid mobile app with a PHP/MySQL backend exposed over REST with Slim, geolocated search using the Google Geo API and Firebase-based chat."},tags:["Ionic","Firebase","PHP","MySQL","Slim","REST"]},{id:"osde",logo:"img/portfolio/logo-osde.png",company:"OSDE",url:"http://www.osdebinario.com.ar",linkLabel:"osdebinario.com.ar",current:!1,years:{es:"Abr 2013 \u2014 Ago 2015",en:"Apr 2013 \u2014 Aug 2015"},role:{es:"Technical Analyst",en:"Technical Analyst"},desc:{es:"Definiciones t\xE9cnicas, testing y puesta en producci\xF3n de m\xFAltiples proyectos. PoCs para kick-off y aprobaci\xF3n de usuarios, research de tecnolog\xEDa y resoluci\xF3n de bugs en producci\xF3n.",en:"Technical definitions, testing and production deployment across several projects. PoCs for project kick-off and user approval, technology research and production bug resolution."},tags:["Java EE","Testing","PoC","Deploy"]},{id:"oracle",logo:"img/portfolio/logo-oracle.jpg",company:"Oracle",url:"http://www.oracle.com",linkLabel:"oracle.com",current:!1,years:{es:"Oct 2010 \u2014 Abr 2013",en:"Oct 2010 \u2014 Apr 2013"},role:{es:"Java EE Developer (Ssr)",en:"Java EE Developer (Ssr)"},desc:{es:"Aplicaci\xF3n de escritorio para proyectar y seguir costos e ingresos de los proyectos de consultor\xEDa de Oracle. Tambi\xE9n desarrollo ADF con JDeveloper Studio sobre Oracle 11g.",en:"Desktop application to forecast and track cost and revenue for Oracle's consulting projects. Also ADF development with JDeveloper Studio on Oracle 11g."},tags:["Swing","Spring","JPA / Hibernate","Jasper Reports","Maven","Oracle ADF"]}],A={es:[{label:"Backend",items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"]},{label:"Frontend & Mobile",items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"]},{label:"Datos & Mensajer\xEDa",items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"]},{label:"Plataforma",items:["Docker","Maven","CI/CD","REST","JWT","Arquitectura de sistemas"]}],en:[{label:"Backend",items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"]},{label:"Frontend & Mobile",items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"]},{label:"Data & Messaging",items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"]},{label:"Platform",items:["Docker","Maven","CI/CD","REST","JWT","System architecture"]}]};var e=window.React,I=window.ReactDOM,{useState:F,useEffect:T,useRef:E}=e;function L(){try{let a=navigator.languages&&navigator.languages[0]||navigator.language||"es";return String(a).toLowerCase().startsWith("es")?"es":"en"}catch{return"es"}}function O(){try{return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}catch{return"light"}}function C(a){return[{isCmd:!0,text:"whoami"},{isOut:!0,text:"Fernando Iguibejeres \u2014 "+a.kicker},{isOut:!0,text:a.heroLede}]}function B(a,n){let s=b.find(o=>o.id===a)||b[0],t=[["company:"," "+s.company],["role:"," "+s.role[n]],["period:"," "+s.years[n]],["current:"," "+(s.current?"true":"false")],["url:"," "+(s.url||"-")],["",""],["summary: |",""],["  ",s.desc[n]],["",""],["stack:",""]].concat(s.tags.map(o=>["  - ",o]));return{file:s.id+".yaml",branch:"\u2387 main \xB7 "+s.id,count:t.length,lines:t.map((o,c)=>({no:c+1,k:o[0],v:o[1],kc:o[0]==="  "||o[0]==="  - "?"rgba(234,242,245,.3)":"#7FCBE0",vc:o[0]==="  - "?"#D8A548":"#EAF2F5"}))}}function P({state:a,setState:n,t:s,active:t,barRef:o}){let c=a.mode==="site",r=c?[{href:"#experiencia",id:"experiencia",label:s.navExp},{href:"#stack",id:"stack",label:s.navStack},{href:"#contacto",id:"contacto",label:s.navContact}]:[],l=[{key:"site",icon:"\u25F1",label:s.modeSite,title:s.modeSiteTitle},{key:"term",icon:"\u276F",label:s.modeTerm,title:s.modeTermTitle},{key:"ide",icon:"\u25C8",label:s.modeIde,title:s.modeIdeTitle}];return e.createElement("nav",{className:"nav"},e.createElement("div",{ref:o,className:"nav-progress"}),e.createElement("div",{className:"nav-inner"},e.createElement("a",{href:"#top",className:"nav-brand"},"Fernando Iguibejeres",e.createElement("span",{className:"nav-brand-dot"})),e.createElement("div",{className:"nav-spacer"}),e.createElement("div",{className:"nav-links"},r.map(i=>e.createElement("a",{key:i.id,href:i.href,className:"nav-link"+(t===i.id?" is-active":"")},i.label,e.createElement("span",{className:"nav-link-underline"+(t===i.id?" is-active":"")})))),e.createElement("div",{className:"mode-switch"},l.map(i=>e.createElement("button",{key:i.key,title:i.title,className:"mode-btn"+(a.mode===i.key?" is-active":""),onClick:()=>n(v=>({...v,mode:i.key}))},i.icon," ",i.label))),c&&e.createElement("div",{className:"layout-switch"},["A","B","C","D","E"].map(i=>e.createElement("button",{key:i,title:s["lay"+i],className:"layout-btn"+(a.layout===i?" is-active":""),onClick:()=>n(v=>({...v,layout:i}))},i))),e.createElement("div",{className:"lang-switch"},e.createElement("button",{className:"lang-btn"+(a.lang==="es"?" is-active":""),onClick:()=>n(i=>({...i,lang:"es",langTouched:!0,term:null}))},"ES"),e.createElement("button",{className:"lang-btn"+(a.lang==="en"?" is-active":""),onClick:()=>n(i=>({...i,lang:"en",langTouched:!0,term:null}))},"EN")),e.createElement("button",{className:"theme-btn",title:s.themeTitle,onClick:()=>n(i=>({...i,theme:i.theme==="dark"?"light":"dark",themeTouched:!0}))},a.theme==="dark"?"\u2600":"\u263E")))}function j({t:a}){return e.createElement("header",{className:"hero-a"},e.createElement("div",null,e.createElement("div",{className:"hero-a-kicker"},a.kicker),e.createElement("h1",{className:"hero-a-title"},"Fernando",e.createElement("br",null),"Iguibejeres"),e.createElement("p",{className:"hero-a-lede"},a.heroLede),e.createElement("div",{className:"hero-a-ctas"},e.createElement("a",{href:"mailto:"+g,className:"btn-solid"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"btn-outline"},a.ctaCv)),e.createElement("div",{className:"hero-a-stats"},e.createElement("div",null,e.createElement("div",{className:"stat-num"},"15+"),e.createElement("div",{className:"stat-label"},a.statYears)),e.createElement("div",null,e.createElement("div",{className:"stat-num"},"9"),e.createElement("div",{className:"stat-label"},a.statRoles)),e.createElement("div",null,e.createElement("div",{className:"stat-num"},"AR"),e.createElement("div",{className:"stat-label"},a.statLoc)))),e.createElement("div",{className:"hero-a-photo-wrap"},e.createElement("div",{className:"hero-a-blob1"}),e.createElement("div",{className:"hero-a-blob2"}),e.createElement("img",{src:"img/profile.png",alt:"Fernando Iguibejeres",className:"hero-a-photo"})))}function J({t:a}){return e.createElement("header",{className:"hero-b"},e.createElement("div",{className:"hero-b-inner"},e.createElement("img",{src:"img/profile.png",alt:"Fernando Iguibejeres",className:"hero-b-photo"}),e.createElement("h1",{className:"hero-b-title"},"Fernando Iguibejeres"),e.createElement("div",{className:"hero-b-divider"},e.createElement("span",{className:"hero-b-divider-line"}),e.createElement("span",{className:"hero-b-divider-dot"}),e.createElement("span",{className:"hero-b-divider-line"})),e.createElement("p",{className:"hero-b-lede"},a.heroLede),e.createElement("div",{className:"hero-b-ctas"},e.createElement("a",{href:"mailto:"+g,className:"btn-solid-onband"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"btn-outline-onband"},a.ctaCv))))}function M({t:a}){return e.createElement("header",{className:"hero-c"},e.createElement("div",{className:"hero-c-top"},e.createElement("img",{src:"img/profile.png",alt:"Fernando Iguibejeres",className:"hero-c-photo"}),e.createElement("div",null,e.createElement("div",{className:"hero-c-name"},"Fernando Iguibejeres"),e.createElement("div",{className:"hero-c-kicker"},a.kicker))),e.createElement("h1",{className:"hero-c-title"},a.heroBigA," ",e.createElement("strong",null,a.heroBigB)),e.createElement("div",{className:"hero-c-ctas"},e.createElement("a",{href:"mailto:"+g,className:"btn-solid"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"btn-outline"},a.ctaCv)))}function H({t:a}){return e.createElement("header",{className:"hero-d"},e.createElement("div",{className:"hero-d-panel"},e.createElement("div",{className:"hero-d-photo-box"},e.createElement("img",{src:"img/profile.png",alt:"Fernando Iguibejeres",className:"hero-d-photo"})),e.createElement("div",{className:"hero-d-text"},e.createElement("div",{className:"hero-d-kicker"},a.kicker),e.createElement("h1",{className:"hero-d-title"},"Fernando",e.createElement("br",null),"Iguibejeres"),e.createElement("p",{className:"hero-d-lede"},a.heroLede),e.createElement("div",{className:"hero-d-stats"},e.createElement("div",null,e.createElement("div",{className:"hero-d-stat-num"},"15+"),e.createElement("div",{className:"hero-d-stat-label"},a.statYears)),e.createElement("div",null,e.createElement("div",{className:"hero-d-stat-num"},"9"),e.createElement("div",{className:"hero-d-stat-label"},a.statRoles)),e.createElement("div",null,e.createElement("div",{className:"hero-d-stat-num"},"AR"),e.createElement("div",{className:"hero-d-stat-label"},a.statLoc))),e.createElement("div",{className:"hero-d-ctas"},e.createElement("a",{href:"mailto:"+g,className:"hero-d-cta-solid"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"hero-d-cta-outline"},a.ctaCv)))))}function q({t:a}){let n=b.concat(b);return e.createElement("header",{className:"hero-e"},e.createElement("div",{className:"hero-e-inner"},e.createElement("div",{className:"hero-e-top"},e.createElement("img",{src:"img/profile.png",alt:"Fernando Iguibejeres",className:"hero-e-photo"}),e.createElement("div",{className:"hero-e-kicker"},a.kicker),e.createElement("div",{className:"hero-e-divider"}),e.createElement("div",{className:"hero-e-location"},"Buenos Aires \xB7 AR")),e.createElement("h1",{className:"hero-e-title-1"},"Fernando"),e.createElement("h1",{className:"hero-e-title-2"},"Iguibejeres"),e.createElement("div",{className:"hero-e-bottom"},e.createElement("p",{className:"hero-e-lede"},a.heroLede),e.createElement("div",{className:"hero-e-ctas"},e.createElement("a",{href:"mailto:"+g,className:"hero-e-cta-solid"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"hero-e-cta-outline"},a.ctaCv)))),e.createElement("div",{className:"hero-e-marquee-wrap"},e.createElement("div",{className:"hero-e-marquee-track"},n.map((s,t)=>e.createElement("div",{key:s.id+"-"+t,role:"img","aria-label":s.company,className:"hero-e-marquee-item",style:{backgroundImage:"url("+s.logo+")"}})))))}function G({t:a,state:n,setState:s}){let t=n.allOpen;return e.createElement("section",{id:"experiencia",className:"section-exp"},e.createElement("div",{"data-reveal":"1",className:"section-exp-head"},e.createElement("div",null,e.createElement("div",{className:"section-kicker"},a.navExp),e.createElement("h2",{className:"section-title"},a.expTitle)),e.createElement("button",{className:"btn-toggle",onClick:()=>s(o=>({...o,allOpen:!o.allOpen,open:{}}))},t?a.collapseAll:a.expandAll)),e.createElement("div",{className:"job-list"},b.map(o=>{let c=t||!!n.open[o.id];return e.createElement("div",{key:o.id,"data-reveal":"1",className:"job-row"},e.createElement("div",{className:"job-years"},o.years[n.lang],o.current&&e.createElement("div",{className:"job-now-badge"},a.now)),e.createElement("div",null,e.createElement("div",{className:"job-header",onClick:()=>s(r=>({...r,allOpen:!1,open:{...r.open,[o.id]:!(r.allOpen||r.open[o.id])}}))},e.createElement("div",{className:"job-logo-box"},e.createElement("div",{role:"img","aria-label":o.company,className:"job-logo",style:{backgroundImage:"url("+o.logo+")"}})),e.createElement("div",{className:"job-text"},e.createElement("div",{className:"job-role"},o.role[n.lang]),e.createElement("div",{className:"job-company"},o.company)),e.createElement("div",{className:"job-chevron",style:{transform:c?"rotate(180deg)":"rotate(0deg)"}},"\u25BE")),e.createElement("div",{className:"job-detail-rows",style:{gridTemplateRows:c?"1fr":"0fr"}},e.createElement("div",{className:"job-detail-inner"},e.createElement("div",{className:"job-detail-content",style:{opacity:c?1:0,transform:c?"none":"translateY(-8px)"}},e.createElement("p",{className:"job-desc"},o.desc[n.lang]),e.createElement("div",{className:"job-tags"},o.tags.map(r=>e.createElement("span",{key:r,className:"tag"},r))),o.url&&e.createElement("a",{href:o.url,target:"_blank",rel:"noreferrer",className:"job-link"},o.linkLabel," \u2197"))))))}),e.createElement("div",{className:"job-list-end"})))}function V({t:a,lang:n}){return e.createElement("section",{id:"stack",className:"section-stack"},e.createElement("div",{className:"section-kicker"},a.navStack),e.createElement("h2",{"data-reveal":"1",className:"section-title is-spaced"},a.stackTitle),e.createElement("div",{className:"stack-grid"},A[n].map(s=>e.createElement("div",{key:s.label,"data-reveal":"1",className:"stack-card"},e.createElement("div",{className:"stack-card-label"},e.createElement("span",{className:"stack-card-dot"}),s.label),e.createElement("div",{className:"stack-items"},s.items.map(t=>e.createElement("span",{key:t,className:"stack-item"},t)))))))}function Q({t:a}){return e.createElement("section",{id:"contacto",className:"section-contact"},e.createElement("div",{"data-reveal":"1",className:"contact-panel"},e.createElement("div",null,e.createElement("h2",{className:"contact-title"},a.contactTitle),e.createElement("p",{className:"contact-lede"},a.contactLede),e.createElement("div",{className:"contact-ctas"},e.createElement("a",{href:"mailto:"+g,className:"contact-cta-solid"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"contact-cta-outline"},a.ctaCv))),e.createElement("div",{className:"contact-links"},e.createElement("div",{className:"contact-links-label"},a.elsewhere),e.createElement("a",{href:"https://github.com/figuibej",target:"_blank",rel:"noreferrer",className:"contact-link"},"GitHub ",e.createElement("span",{className:"contact-link-arrow"},"\u2197")),e.createElement("a",{href:"https://ar.linkedin.com/in/fernando-iguibejeres-50393212",target:"_blank",rel:"noreferrer",className:"contact-link"},"LinkedIn ",e.createElement("span",{className:"contact-link-arrow"},"\u2197")),e.createElement("a",{href:"https://twitter.com/ferigui",target:"_blank",rel:"noreferrer",className:"contact-link is-last"},"X / Twitter ",e.createElement("span",{className:"contact-link-arrow"},"\u2197")),e.createElement("div",{className:"contact-location"},"Buenos Aires \xB7 CABA",e.createElement("br",null),"Argentina"))))}function _({t:a}){return e.createElement("footer",{className:"footer"},e.createElement("div",{className:"footer-inner"},e.createElement("div",null,"\xA9 ",new Date().getFullYear()," Fernando Iguibejeres"),e.createElement("div",null,a.builtWith)))}function Y({t:a,state:n,setState:s}){let t=n.lang,o=(n.term||C(a)).map((l,i)=>({...l,id:"tl"+i})),c=["experience --all","stack","cat now.md","contact","clear"],r=l=>s(i=>{let v=i.lang,k=S[v];if(l==="clear")return{...i,term:C(k)};let h=i.term||C(k),d=[{isCmd:!0,text:l}];return l==="experience --all"?b.forEach(m=>d.push({isKv:!0,k:m.years[v],text:m.company+" \xB7 "+m.role[v]})):l==="stack"?A[v].forEach(m=>d.push({isKv:!0,k:m.label,text:m.items.join("  ")})):l==="cat now.md"?(b.filter(m=>m.current).forEach(m=>d.push({isKv:!0,k:m.company,text:m.role[v]})),d.push({isOut:!0,text:k.heroBigB})):l==="contact"&&(d.push({isKv:!0,k:"email",text:g}),d.push({isKv:!0,k:"github",text:"github.com/figuibej"}),d.push({isKv:!0,k:"linkedin",text:"in/fernando-iguibejeres"}),d.push({isKv:!0,k:"location",text:"Buenos Aires \xB7 CABA \xB7 Argentina"})),{...i,term:h.concat(d)}});return e.createElement("div",{className:"console"},e.createElement("div",{className:"console-window"},e.createElement("div",{className:"console-titlebar"},e.createElement("span",{className:"console-dot is-red"}),e.createElement("span",{className:"console-dot is-yellow"}),e.createElement("span",{className:"console-dot is-green"}),e.createElement("span",{className:"console-path"},"figuibej \u2014 ~/resume \u2014 zsh")),e.createElement("div",{className:"console-body"},o.map(l=>e.createElement("div",{key:l.id,className:"console-line"},l.isCmd&&e.createElement("div",{className:"console-line-cmd"},e.createElement("span",{className:"console-arrow"},"\u279C"),e.createElement("span",{className:"console-prompt"},"~/resume"),e.createElement("span",{className:"console-cmdtext"},l.text)),l.isOut&&e.createElement("div",{className:"console-line-out"},l.text),l.isKv&&e.createElement("div",{className:"console-line-kv"},e.createElement("span",{className:"console-kv-key"},l.k),e.createElement("span",{className:"console-kv-val"},l.text)))),e.createElement("div",{className:"console-line-cmd"},e.createElement("span",{className:"console-arrow"},"\u279C"),e.createElement("span",{className:"console-prompt"},"~/resume"),e.createElement("span",{className:"console-cursor"}))),e.createElement("div",{className:"console-cmdbar"},c.map(l=>e.createElement("button",{key:l,className:"console-cmd-btn",onClick:()=>r(l)},l)))))}function W({t:a,state:n,setState:s}){let t=n.lang,o=n.ideFile||"mobeats",c=B(o,t);return e.createElement("div",{className:"ide"},e.createElement("div",{className:"ide-grid"},e.createElement("div",{className:"ide-sidebar"},e.createElement("div",{className:"ide-explorer-label"},"Explorer"),e.createElement("div",{className:"ide-folder"},e.createElement("span",{className:"ide-folder-arrow"},"\u25BE"),a.ideFolder),b.map(r=>{let l=o===r.id;return e.createElement("div",{key:r.id,onClick:()=>s(i=>({...i,ideFile:r.id})),className:"ide-file",style:{color:l?"#EAF2F5":"rgba(234,242,245,.58)",background:l?"rgba(46,158,188,.14)":"transparent",borderLeft:"2px solid "+(l?"#2E9EBC":"transparent")}},e.createElement("span",{style:{color:r.current?"#7BA658":"rgba(234,242,245,.3)"}},"\u25C6"),r.id,".yaml")}),e.createElement("div",{className:"ide-sidebar-links"},e.createElement("a",{href:"mailto:"+g,className:"ide-sidebar-link"},a.ctaMail),e.createElement("a",{href:f,target:"_blank",rel:"noreferrer",className:"ide-sidebar-link"},a.ctaCv))),e.createElement("div",{className:"ide-main"},e.createElement("div",{className:"ide-tabbar"},e.createElement("div",{className:"ide-tab"},e.createElement("span",{className:"ide-tab-icon"},"\u25C6"),c.file,e.createElement("span",{className:"ide-tab-close"},"\xD7"))),e.createElement("div",{className:"ide-editor"},e.createElement("div",{className:"ide-gutter"},c.lines.map(r=>e.createElement("div",{key:r.no},r.no))),e.createElement("div",{className:"ide-code"},c.lines.map(r=>e.createElement("div",{key:r.no,className:"ide-code-line"},e.createElement("span",{style:{color:r.kc}},r.k),e.createElement("span",{style:{color:r.vc}},r.v))))),e.createElement("div",{className:"ide-statusbar"},e.createElement("span",null,c.branch),e.createElement("span",{className:"ide-statusbar-spacer"}),e.createElement("span",null,"YAML"),e.createElement("span",null,"UTF-8"),e.createElement("span",null,"Ln ",c.count)))))}function K(){let[a,n]=F({lang:L(),theme:O(),layout:"C",open:{mobeats:!0},allOpen:!1,langTouched:!1,themeTouched:!1,mode:"site",term:null,ideFile:"mobeats",active:null}),s=E(null),t=E(null),o=E(a);o.current=a;let c=()=>{let h=t.current;h&&document.querySelectorAll("[data-reveal]:not([data-seen])").forEach(d=>{d.setAttribute("data-seen","1"),d.style.opacity="0",d.style.transform="translateY(20px)",d.style.transition="opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)",h.observe(d)})};T(()=>{try{t.current=new IntersectionObserver(p=>{p.forEach(u=>{u.isIntersecting&&(u.target.style.opacity="1",u.target.style.transform="none",t.current.unobserve(u.target))})},{rootMargin:"0px 0px -8% 0px",threshold:.06}),c()}catch{}let h;try{let p=["experiencia","stack","contacto"];h=new IntersectionObserver(u=>{u.forEach(N=>{N.isIntersecting&&o.current.active!==N.target.id&&n(D=>({...D,active:N.target.id}))})},{rootMargin:"-45% 0px -50% 0px"}),p.forEach(u=>{let N=document.getElementById(u);N&&h.observe(N)})}catch{}let d=null,m=()=>{d||(d=requestAnimationFrame(()=>{d=null;let p=document.documentElement.scrollHeight-window.innerHeight,u=p>0?Math.min(1,window.scrollY/p):0;s.current&&(s.current.style.transform="scaleX("+u+")")}))};window.addEventListener("scroll",m,{passive:!0});let y,w;try{y=window.matchMedia("(prefers-color-scheme: dark)"),w=()=>{o.current.themeTouched||n(p=>({...p,theme:y.matches?"dark":"light"}))},y.addEventListener("change",w)}catch{}let x=()=>{o.current.langTouched||n(p=>({...p,lang:L()}))};return window.addEventListener("languagechange",x),()=>{y&&w&&y.removeEventListener("change",w),window.removeEventListener("languagechange",x),window.removeEventListener("scroll",m),t.current&&t.current.disconnect(),h&&h.disconnect()}},[]),T(()=>{c()});let r=S[a.lang],l=a.theme==="dark",i=a.mode==="site",k={A:j,B:J,C:M,D:H,E:q}[a.layout]||M;return e.createElement("div",{"data-theme":a.theme,className:"app"},e.createElement(P,{state:a,setState:n,t:r,active:a.active,barRef:s}),e.createElement("div",{id:"top"}),i&&e.createElement(k,{t:r}),i&&e.createElement(e.Fragment,null,e.createElement(G,{t:r,state:a,setState:n}),e.createElement(V,{t:r,lang:a.lang}),e.createElement(Q,{t:r}),e.createElement(_,{t:r})),a.mode==="term"&&e.createElement(Y,{t:r,state:a,setState:n}),a.mode==="ide"&&e.createElement(W,{t:r,state:a,setState:n}))}I.createRoot(document.getElementById("root")).render(e.createElement(K,null));})();
 
-  var COPY = {
-    es: {
-      navExp: "Experiencia", navStack: "Stack", navContact: "Contacto",
-      kicker: "Software Architect · Full Stack",
-      heroBigA: "Arquitecto de software y desarrollador full stack.",
-      heroBigB: "Sistemas que aguantan escala real.",
-      ctaMail: "Escribime", ctaCv: "Descargar CV (PDF)",
-      expTitle: "Una carrera, en orden.", expandAll: "Expandir todo", collapseAll: "Contraer todo",
-      now: "Actual", stackTitle: "Con qué trabajo.",
-      contactTitle: "Hablemos de tu próximo proyecto.",
-      contactLede: "Disponible para consultoría de arquitectura, liderazgo técnico y desarrollo full stack.",
-      elsewhere: "En la web", builtWith: "Hecho a mano · GitHub Pages",
-      themeTitle: "Cambiar tema"
-    },
-    en: {
-      navExp: "Experience", navStack: "Stack", navContact: "Contact",
-      kicker: "Software Architect · Full Stack",
-      heroBigA: "Software architect and full stack developer.",
-      heroBigB: "Systems that hold up at real scale.",
-      ctaMail: "Get in touch", ctaCv: "Download CV (PDF)",
-      expTitle: "One career, in order.", expandAll: "Expand all", collapseAll: "Collapse all",
-      now: "Current", stackTitle: "What I work with.",
-      contactTitle: "Let's talk about your next project.",
-      contactLede: "Available for architecture consulting, technical leadership and full stack development.",
-      elsewhere: "Elsewhere", builtWith: "Handmade · GitHub Pages",
-      themeTitle: "Toggle theme"
-    }
-  };
-
-  var JOBS = [
-    { id:"mobeats", logo:"img/portfolio/logo-mobeats.png", company:"Mobeats", url:"https://mobeats.io/", linkLabel:"mobeats.io", current:true,
-      years:{es:"Jul 2019 — Presente", en:"Jul 2019 — Present"},
-      role:{es:"Technical Leader & Full Stack Developer", en:"Technical Leader & Full Stack Developer"},
-      desc:{es:"Análisis de casos de negocio para el diseño técnico. Dockerización de aplicaciones para múltiples entornos, frontends responsive y resolución de problemas de performance.", en:"Business case analysis for technical design. Dockerized applications across multiple environments, responsive frontends and performance issue resolution."},
-      tags:["Docker","Node.js","Vue.js","Arquitectura","Performance"] },
-    { id:"ml", logo:"img/portfolio/logo-ml.png", company:"MercadoLibre", url:"https://www.mercadolibre.com", linkLabel:"mercadolibre.com", current:true,
-      years:{es:"Jul 2016 — Presente", en:"Jul 2016 — Present"},
-      role:{es:"Software Engineer", en:"Software Engineer"},
-      desc:{es:"Plataforma de envíos que integra múltiples correos para dar servicio de logística a las órdenes del sitio, a escala regional.", en:"Shipping platform integrating several postal carriers to provide logistics for site orders, at regional scale."},
-      tags:["Grails","Oracle","MongoDB","Redis","Memcached","RabbitMQ","Elasticsearch"] },
-    { id:"bitson", logo:"img/portfolio/logo-bitson.png", company:"Bitson", url:"https://contrata.com.ar", linkLabel:"contrata.com.ar", current:false,
-      years:{es:"Sep 2018 — Jul 2019", en:"Sep 2018 — Jul 2019"},
-      role:{es:"Full Stack Developer (freelance)", en:"Full Stack Developer (freelance)"},
-      desc:{es:"Aplicación web responsive de punta a punta, con autenticación por JWT y despliegue en contenedores.", en:"End-to-end responsive web application with JWT authentication and container-based deployment."},
-      tags:["Vue.js","Vuetify","Node.js","Express","MongoDB","JWT","Docker"] },
-    { id:"uberall", logo:"img/portfolio/logo-uberall.png", company:"Uberall.la", url:"https://play.google.com/store/apps/details?id=gob.ar.modernizacion.mardelplata", linkLabel:"Turismo Mar del Plata", current:false,
-      years:{es:"Nov 2017 — Ene 2018", en:"Nov 2017 — Jan 2018"},
-      role:{es:"Mobile Developer (freelance)", en:"Mobile Developer (freelance)"},
-      desc:{es:"App móvil para Android e iOS con georreferenciación de puntos de interés turístico mediante la API de Google Maps.", en:"Mobile app for Android and iOS with geolocated points of interest through the Google Maps API."},
-      tags:["Ionic 3","Android","iOS","Google Maps API"] },
-    { id:"3pbi", logo:"img/portfolio/logo-3pbi.png", company:"3pbi Consulting", url:"http://www.3pbiconsulting.com.ar/", linkLabel:"3pbiconsulting.com.ar", current:false,
-      years:{es:"Jul 2016 — Oct 2016", en:"Jul 2016 — Oct 2016"},
-      role:{es:"Software Developer (freelance)", en:"Software Developer (freelance)"},
-      desc:{es:"Migración de base de datos y queries de Microsoft Access a SQL Server 2014, más integración con listas de SharePoint Online vía SSIS, sincronizada por un job recurrente.", en:"Migration of Microsoft Access database and queries to SQL Server 2014, plus SharePoint Online list integration via SSIS, kept in sync by a recurring job."},
-      tags:["SQL Server 2014","SSIS","SharePoint Online"] },
-    { id:"cdt", logo:"img/portfolio/logo-cdt.jpg", company:"CDT", url:"http://www.cdt.com.ar", linkLabel:"cdt.com.ar", current:false,
-      years:{es:"Ago 2015 — Jul 2016", en:"Aug 2015 — Jul 2016"},
-      role:{es:"Software Architect", en:"Software Architect"},
-      desc:{es:"Definición de guidelines para los equipos según el stack, evaluaciones de código estáticas y dinámicas, y comunicación de las decisiones técnicas con todas las áreas involucradas.", en:"Set guidelines for project teams according to their stack, ran static and dynamic code assessments, and communicated technical decisions across all participating areas."},
-      tags:["Java EE","Code review","Guidelines","Arquitectura"] },
-    { id:"braintly", logo:"img/portfolio/logo-braintly.png", company:"Braintly", url:"https://braintly.com/", linkLabel:"braintly.com", current:false,
-      years:{es:"Feb 2015 — Abr 2015", en:"Feb 2015 — Apr 2015"},
-      role:{es:"Mobile Developer (freelance)", en:"Mobile Developer (freelance)"},
-      desc:{es:"App móvil híbrida con backend PHP/MySQL expuesto por REST con Slim, búsqueda geolocalizada con la Google Geo API y chat sobre Firebase.", en:"Hybrid mobile app with a PHP/MySQL backend exposed over REST with Slim, geolocated search using the Google Geo API and Firebase-based chat."},
-      tags:["Ionic","Firebase","PHP","MySQL","Slim","REST"] },
-    { id:"osde", logo:"img/portfolio/logo-osde.png", company:"OSDE", url:"http://www.osdebinario.com.ar", linkLabel:"osdebinario.com.ar", current:false,
-      years:{es:"Abr 2013 — Ago 2015", en:"Apr 2013 — Aug 2015"},
-      role:{es:"Technical Analyst", en:"Technical Analyst"},
-      desc:{es:"Definiciones técnicas, testing y puesta en producción de múltiples proyectos. PoCs para kick-off y aprobación de usuarios, research de tecnología y resolución de bugs en producción.", en:"Technical definitions, testing and production deployment across several projects. PoCs for project kick-off and user approval, technology research and production bug resolution."},
-      tags:["Java EE","Testing","PoC","Deploy"] },
-    { id:"oracle", logo:"img/portfolio/logo-oracle.jpg", company:"Oracle", url:"http://www.oracle.com", linkLabel:"oracle.com", current:false,
-      years:{es:"Oct 2010 — Abr 2013", en:"Oct 2010 — Apr 2013"},
-      role:{es:"Java EE Developer (Ssr)", en:"Java EE Developer (Ssr)"},
-      desc:{es:"Aplicación de escritorio para proyectar y seguir costos e ingresos de los proyectos de consultoría de Oracle. También desarrollo ADF con JDeveloper Studio sobre Oracle 11g.", en:"Desktop application to forecast and track cost and revenue for Oracle's consulting projects. Also ADF development with JDeveloper Studio on Oracle 11g."},
-      tags:["Swing","Spring","JPA / Hibernate","Jasper Reports","Maven","Oracle ADF"] }
-  ];
-
-  var STACK = {
-    es: [
-      { label:"Backend", items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"] },
-      { label:"Frontend & Mobile", items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"] },
-      { label:"Datos & Mensajería", items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"] },
-      { label:"Plataforma", items:["Docker","Maven","CI/CD","REST","JWT","Arquitectura de sistemas"] }
-    ],
-    en: [
-      { label:"Backend", items:["Java / Java EE","Grails","Spring","Node.js","Express","Go","PHP"] },
-      { label:"Frontend & Mobile", items:["Vue.js","Vuetify","Ionic","Flutter","HTML5","CSS3","Android","iOS"] },
-      { label:"Data & Messaging", items:["Oracle","SQL Server","MongoDB","MySQL","Redis","Memcached","Elasticsearch","RabbitMQ"] },
-      { label:"Platform", items:["Docker","Maven","CI/CD","REST","JWT","System architecture"] }
-    ]
-  };
-
-  var LS = { lang: "fi-lang", theme: "fi-theme" };
-  var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
-
-  function systemLang() {
-    var l = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
-    return String(l).toLowerCase().indexOf("es") === 0 ? "es" : "en";
-  }
-  function systemTheme() { return mq && mq.matches ? "dark" : "light"; }
-  function stored(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-
-  var lang = stored(LS.lang) || systemLang();
-  var theme = stored(LS.theme) || systemTheme();
-  var open = { mobeats: true };
-  var allOpen = false;
-
-  var elTl = document.getElementById("tl");
-  var elCards = document.getElementById("cards");
-  var btnAll = document.getElementById("btn-all");
-  var btnTheme = document.getElementById("btn-theme");
-  var btnEs = document.getElementById("btn-es");
-  var btnEn = document.getElementById("btn-en");
-
-  function applyTheme() {
-    document.documentElement.setAttribute("data-theme", theme);
-    btnTheme.textContent = theme === "dark" ? "☀" : "☾";
-    btnTheme.setAttribute("title", COPY[lang].themeTitle);
-    btnTheme.setAttribute("aria-label", COPY[lang].themeTitle);
-  }
-
-  function renderTimeline() {
-    var t = COPY[lang];
-    elTl.textContent = "";
-    JOBS.forEach(function (j) {
-      var isOpen = allOpen || !!open[j.id];
-      var row = document.createElement("article");
-      row.className = "job";
-
-      var when = document.createElement("div");
-      when.className = "job-when";
-      when.appendChild(document.createTextNode(j.years[lang]));
-      if (j.current) {
-        var badge = document.createElement("div");
-        badge.className = "now";
-        badge.textContent = t.now;
-        when.appendChild(badge);
-      }
-      row.appendChild(when);
-
-      var right = document.createElement("div");
-
-      var head = document.createElement("button");
-      head.type = "button";
-      head.className = "job-head";
-      head.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-      var logo = document.createElement("div");
-      logo.className = "logo";
-      var img = document.createElement("span");
-      img.style.backgroundImage = "url(" + j.logo + ")";
-      logo.appendChild(img);
-      head.appendChild(logo);
-
-      var main = document.createElement("div");
-      main.className = "job-main";
-      var role = document.createElement("div");
-      role.className = "job-role";
-      role.textContent = j.role[lang];
-      var co = document.createElement("div");
-      co.className = "job-co";
-      co.textContent = j.company;
-      main.appendChild(role); main.appendChild(co);
-      head.appendChild(main);
-
-      var chev = document.createElement("div");
-      chev.className = "chev";
-      chev.textContent = isOpen ? "–" : "+";
-      head.appendChild(chev);
-
-      head.addEventListener("click", function () {
-        var wasOpen = allOpen || !!open[j.id];
-        if (allOpen) { allOpen = false; open = {}; JOBS.forEach(function (o) { open[o.id] = true; }); }
-        open[j.id] = !wasOpen;
-        syncAllLabel();
-        renderTimeline();
-      });
-      right.appendChild(head);
-
-      if (isOpen) {
-        var body = document.createElement("div");
-        body.className = "job-body";
-        var p = document.createElement("p");
-        p.textContent = j.desc[lang];
-        body.appendChild(p);
-        var tags = document.createElement("div");
-        tags.className = "tags";
-        j.tags.forEach(function (tag) {
-          var s = document.createElement("span");
-          s.textContent = tag;
-          tags.appendChild(s);
-        });
-        body.appendChild(tags);
-        if (j.url) {
-          var a = document.createElement("a");
-          a.className = "job-link";
-          a.href = j.url;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.textContent = j.linkLabel + " ↗";
-          body.appendChild(a);
-        }
-        right.appendChild(body);
-      }
-
-      row.appendChild(right);
-      elTl.appendChild(row);
-    });
-  }
-
-  function renderStack() {
-    elCards.textContent = "";
-    STACK[lang].forEach(function (g) {
-      var card = document.createElement("div");
-      card.className = "card";
-      var h3 = document.createElement("h3");
-      var dot = document.createElement("span");
-      dot.className = "dot";
-      h3.appendChild(dot);
-      h3.appendChild(document.createTextNode(g.label));
-      card.appendChild(h3);
-      var chips = document.createElement("div");
-      chips.className = "chips";
-      g.items.forEach(function (i) {
-        var s = document.createElement("span");
-        s.textContent = i;
-        chips.appendChild(s);
-      });
-      card.appendChild(chips);
-      elCards.appendChild(card);
-    });
-  }
-
-  function syncAllLabel() {
-    btnAll.textContent = allOpen ? COPY[lang].collapseAll : COPY[lang].expandAll;
-  }
-
-  function applyLang() {
-    var t = COPY[lang];
-    document.documentElement.lang = lang;
-    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (n) {
-      var k = n.getAttribute("data-i18n");
-      if (t[k]) n.textContent = t[k];
-    });
-    btnEs.setAttribute("aria-pressed", lang === "es" ? "true" : "false");
-    btnEn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
-    syncAllLabel();
-    applyTheme();
-    renderTimeline();
-    renderStack();
-  }
-
-  btnEs.addEventListener("click", function () { lang = "es"; store(LS.lang, lang); applyLang(); });
-  btnEn.addEventListener("click", function () { lang = "en"; store(LS.lang, lang); applyLang(); });
-  btnTheme.addEventListener("click", function () {
-    theme = theme === "dark" ? "light" : "dark";
-    store(LS.theme, theme);
-    applyTheme();
-  });
-  btnAll.addEventListener("click", function () {
-    allOpen = !allOpen;
-    open = {};
-    syncAllLabel();
-    renderTimeline();
-  });
-
-  if (mq && mq.addEventListener) {
-    mq.addEventListener("change", function () {
-      if (!stored(LS.theme)) { theme = systemTheme(); applyTheme(); }
-    });
-  }
-  window.addEventListener("languagechange", function () {
-    if (!stored(LS.lang)) { lang = systemLang(); applyLang(); }
-  });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-  applyLang();
-})();
 </script>
 </body>
 </html>
