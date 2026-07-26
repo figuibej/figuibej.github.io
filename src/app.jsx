@@ -85,16 +85,6 @@ function Nav({ state, setState, t, active, barRef }) {
             </button>
           ))}
         </div>
-        {site && (
-          <div className="layout-switch">
-            {["A", "B", "C", "D", "E"].map((k) => (
-              <button key={k} title={t["lay" + k]} className={"layout-btn" + (state.layout === k ? " is-active" : "")}
-                onClick={() => setState((s) => ({ ...s, layout: k }))}>
-                {k}
-              </button>
-            ))}
-          </div>
-        )}
         <div className="lang-switch">
           <button className={"lang-btn" + (state.lang === "es" ? " is-active" : "")}
             onClick={() => setState((s) => ({ ...s, lang: "es", langTouched: true, term: null }))}>ES</button>
@@ -107,98 +97,6 @@ function Nav({ state, setState, t, active, barRef }) {
         </button>
       </div>
     </nav>
-  );
-}
-
-function HeroA({ t }) {
-  return (
-    <header className="hero-a">
-      <div>
-        <div className="hero-a-kicker">{t.kicker}</div>
-        <h1 className="hero-a-title">Fernando<br />Iguibejeres</h1>
-        <p className="hero-a-lede">{t.heroLede}</p>
-        <div className="hero-a-ctas">
-          <a href={"mailto:" + EMAIL} className="btn-solid">{t.ctaMail}</a>
-          <a href={CV_URL} target="_blank" rel="noreferrer" className="btn-outline">{t.ctaCv}</a>
-        </div>
-        <div className="hero-a-stats">
-          <div><div className="stat-num">15+</div><div className="stat-label">{t.statYears}</div></div>
-          <div><div className="stat-num">9</div><div className="stat-label">{t.statRoles}</div></div>
-          <div><div className="stat-num">AR</div><div className="stat-label">{t.statLoc}</div></div>
-        </div>
-      </div>
-      <div className="hero-a-photo-wrap">
-        <div className="hero-a-blob1" />
-        <div className="hero-a-blob2" />
-        <img src="img/profile.png" alt="Fernando Iguibejeres" className="hero-a-photo" />
-      </div>
-    </header>
-  );
-}
-
-function HeroB({ t }) {
-  return (
-    <header className="hero-b">
-      <div className="hero-b-inner">
-        <img src="img/profile.png" alt="Fernando Iguibejeres" className="hero-b-photo" />
-        <h1 className="hero-b-title">Fernando Iguibejeres</h1>
-        <div className="hero-b-divider">
-          <span className="hero-b-divider-line" />
-          <span className="hero-b-divider-dot" />
-          <span className="hero-b-divider-line" />
-        </div>
-        <p className="hero-b-lede">{t.heroLede}</p>
-        <div className="hero-b-ctas">
-          <a href={"mailto:" + EMAIL} className="btn-solid-onband">{t.ctaMail}</a>
-          <a href={CV_URL} target="_blank" rel="noreferrer" className="btn-outline-onband">{t.ctaCv}</a>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function HeroC({ t }) {
-  return (
-    <header className="hero-c">
-      <div className="hero-c-top">
-        <img src="img/profile.png" alt="Fernando Iguibejeres" className="hero-c-photo" />
-        <div>
-          <div className="hero-c-name">Fernando Iguibejeres</div>
-          <div className="hero-c-kicker">{t.kicker}</div>
-        </div>
-      </div>
-      <h1 className="hero-c-title">{t.heroBigA} <strong>{t.heroBigB}</strong></h1>
-      <div className="hero-c-ctas">
-        <a href={"mailto:" + EMAIL} className="btn-solid">{t.ctaMail}</a>
-        <a href={CV_URL} target="_blank" rel="noreferrer" className="btn-outline">{t.ctaCv}</a>
-      </div>
-    </header>
-  );
-}
-
-function HeroD({ t }) {
-  return (
-    <header className="hero-d">
-      <div className="hero-d-panel">
-        <div className="hero-d-photo-box">
-          <img src="img/profile.png" alt="Fernando Iguibejeres" className="hero-d-photo" />
-        </div>
-        <div className="hero-d-text">
-          <div className="hero-d-kicker">{t.kicker}</div>
-          <h1 className="hero-d-title">Fernando<br />Iguibejeres</h1>
-          <p className="hero-d-lede">{t.heroLede}</p>
-          <div className="hero-d-stats">
-            <div><div className="hero-d-stat-num">15+</div><div className="hero-d-stat-label">{t.statYears}</div></div>
-            <div><div className="hero-d-stat-num">9</div><div className="hero-d-stat-label">{t.statRoles}</div></div>
-            <div><div className="hero-d-stat-num">AR</div><div className="hero-d-stat-label">{t.statLoc}</div></div>
-          </div>
-          <div className="hero-d-ctas">
-            <a href={"mailto:" + EMAIL} className="hero-d-cta-solid">{t.ctaMail}</a>
-            <a href={CV_URL} target="_blank" rel="noreferrer" className="hero-d-cta-outline">{t.ctaCv}</a>
-          </div>
-        </div>
-      </div>
-    </header>
   );
 }
 
@@ -466,7 +364,7 @@ function Ide({ t, state, setState }) {
 
 function App() {
   const [state, setState] = useState({
-    lang: systemLang(), theme: systemTheme(), layout: "C",
+    lang: systemLang(), theme: systemTheme(),
     open: { mobeats: true }, allOpen: false,
     langTouched: false, themeTouched: false,
     mode: "site", term: null, ideFile: "mobeats", active: null
@@ -557,14 +455,11 @@ function App() {
   const dark = state.theme === "dark";
   const site = state.mode === "site";
 
-  const heroByLayout = { A: HeroA, B: HeroB, C: HeroC, D: HeroD, E: HeroE };
-  const Hero = heroByLayout[state.layout] || HeroC;
-
   return (
     <div data-theme={state.theme} className="app">
       <Nav state={state} setState={setState} t={t} active={state.active} barRef={barRef} />
       <div id="top" />
-      {site && <Hero t={t} />}
+      {site && <HeroE t={t} />}
       {site && (
         <>
           <ExperienceSection t={t} state={state} setState={setState} />
