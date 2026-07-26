@@ -87,6 +87,17 @@ a:hover{color:var(--accent2)}
 .tag:hover{background:var(--accent);color:#ffffff;transform:translateY(-2px)}
 .job-link{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:13px;font-weight:600;letter-spacing:.3px}
 .job-list-end{border-top:1px solid var(--line)}
+.job-group-head{display:flex;align-items:center;gap:20px;padding:28px 4px 18px 0}
+.job-group-positions{margin-left:26px;padding-left:26px;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.job-group-position{position:relative}
+.job-group-position+.job-group-position{border-top:1px solid var(--line)}
+.job-group-dot{position:absolute;left:-31px;top:25px;width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.job-group-position-head{display:flex;align-items:center;gap:20px;padding:20px 4px 20px 0;cursor:pointer;transition:background .25s ease}
+.job-group-position-head:hover{background:var(--soft)}
+.job-position-role{font-size:16px;font-weight:700;letter-spacing:-.3px;color:var(--ink)}
+.job-position-years{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.6px;color:var(--muted);margin-top:5px}
+.job-position-years .job-now-badge{margin-top:0}
+.job-group-detail-content{padding-left:0}
 
 /* Stack section */
 .section-stack{max-width:1120px;margin:0 auto;padding:76px 32px 12px}

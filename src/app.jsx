@@ -133,8 +133,40 @@ function HeroE({ t }) {
   );
 }
 
+function groupJobsByCompany(jobs) {
+  const groups = [];
+  jobs.forEach((j) => {
+    const last = groups[groups.length - 1];
+    if (last && last[0].company === j.company) last.push(j);
+    else groups.push([j]);
+  });
+  return groups;
+}
+
+function JobDetail({ j, lang, open, contentClassName }) {
+  return (
+    <div className="job-detail-rows" style={{ gridTemplateRows: open ? "1fr" : "0fr" }}>
+      <div className="job-detail-inner">
+        <div className={contentClassName} style={{ opacity: open ? 1 : 0, transform: open ? "none" : "translateY(-8px)" }}>
+          <p className="job-desc">{j.desc[lang]}</p>
+          <div className="job-tags">
+            {j.tags.map((tag) => <span key={tag} className="tag">{tag}</span>)}
+          </div>
+          {j.url && <a href={j.url} target="_blank" rel="noreferrer" className="job-link">{j.linkLabel} ↗</a>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ExperienceSection({ t, state, setState }) {
   const allOpen = state.allOpen;
+  const isOpen = (id) => allOpen || !!state.open[id];
+  const toggleJob = (id) => setState((s) => ({
+    ...s, allOpen: false,
+    open: { ...s.open, [id]: !(s.allOpen || s.open[id]) }
+  }));
+  const groups = groupJobsByCompany(JOBS);
   return (
     <section id="experiencia" className="section-exp">
       <div data-reveal="1" className="section-exp-head">
@@ -147,38 +179,66 @@ function ExperienceSection({ t, state, setState }) {
         </button>
       </div>
       <div className="job-list">
-        {JOBS.map((j) => {
-          const open = allOpen || !!state.open[j.id];
-          return (
-            <div key={j.id} data-reveal="1" className="job-row">
-              <div className="job-years">
-                {j.years[state.lang]}
-                {j.current && <div className="job-now-badge">{t.now}</div>}
+        {groups.map((group) => {
+          if (group.length === 1) {
+            const j = group[0];
+            const open = isOpen(j.id);
+            return (
+              <div key={j.id} data-reveal="1" className="job-row">
+                <div className="job-years">
+                  {j.years[state.lang]}
+                  {j.current && <div className="job-now-badge">{t.now}</div>}
+                </div>
+                <div>
+                  <div className="job-header" onClick={() => toggleJob(j.id)}>
+                    <div className="job-logo-box">
+                      <div role="img" aria-label={j.company} className="job-logo" style={{ backgroundImage: "url(" + j.logo + ")" }} />
+                    </div>
+                    <div className="job-text">
+                      <div className="job-role">{j.role[state.lang]}</div>
+                      <div className="job-company">{j.company}</div>
+                    </div>
+                    <div className="job-chevron" style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>▾</div>
+                  </div>
+                  <JobDetail j={j} lang={state.lang} open={open} contentClassName="job-detail-content" />
+                </div>
               </div>
+            );
+          }
+          const head = group[0];
+          return (
+            <div key={"group-" + head.id} data-reveal="1" className="job-row">
+              <div className="job-years" />
               <div>
-                <div className="job-header" onClick={() => setState((s) => ({
-                  ...s, allOpen: false,
-                  open: { ...s.open, [j.id]: !(s.allOpen || s.open[j.id]) }
-                }))}>
+                <div className="job-group-head">
                   <div className="job-logo-box">
-                    <div role="img" aria-label={j.company} className="job-logo" style={{ backgroundImage: "url(" + j.logo + ")" }} />
+                    <div role="img" aria-label={head.company} className="job-logo" style={{ backgroundImage: "url(" + head.logo + ")" }} />
                   </div>
                   <div className="job-text">
-                    <div className="job-role">{j.role[state.lang]}</div>
-                    <div className="job-company">{j.company}</div>
+                    <div className="job-role">{head.company}</div>
+                    {head.groupYears && <div className="job-company">{head.groupYears[state.lang]}</div>}
                   </div>
-                  <div className="job-chevron" style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>▾</div>
                 </div>
-                <div className="job-detail-rows" style={{ gridTemplateRows: open ? "1fr" : "0fr" }}>
-                  <div className="job-detail-inner">
-                    <div className="job-detail-content" style={{ opacity: open ? 1 : 0, transform: open ? "none" : "translateY(-8px)" }}>
-                      <p className="job-desc">{j.desc[state.lang]}</p>
-                      <div className="job-tags">
-                        {j.tags.map((tag) => <span key={tag} className="tag">{tag}</span>)}
+                <div className="job-group-positions">
+                  {group.map((j) => {
+                    const open = isOpen(j.id);
+                    return (
+                      <div key={j.id} className="job-group-position">
+                        <span className="job-group-dot" />
+                        <div className="job-group-position-head" onClick={() => toggleJob(j.id)}>
+                          <div className="job-text">
+                            <div className="job-position-role">{j.role[state.lang]}</div>
+                            <div className="job-position-years">
+                              {j.years[state.lang]}
+                              {j.current && <span className="job-now-badge">{t.now}</span>}
+                            </div>
+                          </div>
+                          <div className="job-chevron" style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>▾</div>
+                        </div>
+                        <JobDetail j={j} lang={state.lang} open={open} contentClassName="job-detail-content job-group-detail-content" />
                       </div>
-                      {j.url && <a href={j.url} target="_blank" rel="noreferrer" className="job-link">{j.linkLabel} ↗</a>}
-                    </div>
-                  </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -365,7 +425,7 @@ function Ide({ t, state, setState }) {
 function App() {
   const [state, setState] = useState({
     lang: systemLang(), theme: systemTheme(),
-    open: { mobeats: true }, allOpen: false,
+    open: { "ml-expert": true }, allOpen: false,
     langTouched: false, themeTouched: false,
     mode: "site", term: null, ideFile: "mobeats", active: null
   });
