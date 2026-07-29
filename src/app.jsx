@@ -51,7 +51,7 @@ function ideDocFor(jobId, lang) {
   };
 }
 
-function Nav({ state, setState, t, active, barRef }) {
+function Nav({ state, setState, t, active, barRef, navRef }) {
   const site = state.mode === "site";
   const navLinks = site ? [
     { href: "#experiencia", id: "experiencia", label: t.navExp },
@@ -64,7 +64,7 @@ function Nav({ state, setState, t, active, barRef }) {
     { key: "ide", icon: "◈", label: t.modeIde, title: t.modeIdeTitle }
   ];
   return (
-    <nav className="nav">
+    <nav ref={navRef} className="nav">
       <div ref={barRef} className="nav-progress" />
       <div className="nav-inner">
         <a href="#top" className="nav-brand">Fernando Iguibejeres<span className="nav-brand-dot" /></a>
@@ -432,6 +432,7 @@ function App() {
   });
 
   const barRef = useRef(null);
+  const navRef = useRef(null);
   const ioRef = useRef(null);
   const stateRef = useRef(state);
   stateRef.current = state;
@@ -487,6 +488,18 @@ function App() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    let ro;
+    const setNavH = () => {
+      if (navRef.current) document.documentElement.style.setProperty("--nav-h", navRef.current.offsetHeight + "px");
+    };
+    setNavH();
+    try {
+      ro = new ResizeObserver(setNavH);
+      if (navRef.current) ro.observe(navRef.current);
+    } catch (e) {
+      window.addEventListener("resize", setNavH);
+    }
+
     let mq, onScheme;
     try {
       mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -505,6 +518,8 @@ function App() {
       if (mq && onScheme) mq.removeEventListener("change", onScheme);
       window.removeEventListener("languagechange", onLang);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", setNavH);
+      if (ro) ro.disconnect();
       if (ioRef.current) ioRef.current.disconnect();
       if (sio) sio.disconnect();
     };
@@ -518,7 +533,7 @@ function App() {
 
   return (
     <div data-theme={state.theme} className="app">
-      <Nav state={state} setState={setState} t={t} active={state.active} barRef={barRef} />
+      <Nav state={state} setState={setState} t={t} active={state.active} barRef={barRef} navRef={navRef} />
       <div id="top" />
       {site && <HeroE t={t} />}
       {site && (
